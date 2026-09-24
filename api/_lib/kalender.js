@@ -203,7 +203,7 @@ export async function freieTermine() {
 }
 
 /* Termin anlegen, nachdem die Zeit noch einmal geprüft wurde */
-export async function termineintragen({ datum, zeit, name, telefon, rolle, themen }) {
+export async function termineintragen({ datum, zeit, name, telefon, email, rolle, themen }) {
   const frei = await freieTermine();
   if (!frei.some((t) => t.datum === datum && t.zeiten.includes(zeit))) return { vergeben: true };
   const tz = regeln.zeitzone;
@@ -214,7 +214,7 @@ export async function termineintragen({ datum, zeit, name, telefon, rolle, theme
     method: 'POST',
     body: JSON.stringify({
       summary: regeln.titel.replace('{name}', name).replace('{rolle}', rolle),
-      description: [`Telefon: ${telefon}`, `Rolle: ${rolle}`, `Thema: ${themen.length ? themen.join(', ') : 'noch offen'}`, '', 'Gebucht über stg-medien.com'].join('\n'),
+      description: [`Telefon: ${telefon}`, `E-Mail: ${email}`, `Rolle: ${rolle}`, `Thema: ${themen.length ? themen.join(', ') : 'noch offen'}`, '', 'Gebucht über stg-medien.com'].join('\n'),
       start: { dateTime: start.toISOString(), timeZone: tz },
       end: { dateTime: ende.toISOString(), timeZone: tz },
       reminders: { useDefault: false, overrides: [{ method: 'popup', minutes: regeln.erinnerungMinuten }] },

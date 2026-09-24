@@ -12,16 +12,18 @@ export async function POST(request) {
 
   const name = String(d.name || '').trim().slice(0, 80);
   const telefon = String(d.telefon || '').trim().slice(0, 30);
+  const email = String(d.email || '').trim().slice(0, 120);
   const rolle = ROLLEN.includes(d.rolle) ? d.rolle : 'Andere';
   const themen = Array.isArray(d.themen) ? d.themen.filter((t) => THEMEN.includes(t)) : [];
   const datum = String(d.datum || ''), zeit = String(d.zeit || '');
   if (name.length < 2 || telefon.replace(/\D/g, '').length < 6 || !/^[\d\s+()/-]+$/.test(telefon)
+      || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)
       || !/^\d{4}-\d{2}-\d{2}$/.test(datum) || !/^\d{2}:\d{2}$/.test(zeit)) {
     return json({ ok: false, grund: 'eingabe' }, 400);
   }
 
   try {
-    const r = await termineintragen({ datum, zeit, name, telefon, rolle, themen });
+    const r = await termineintragen({ datum, zeit, name, telefon, email, rolle, themen });
     if (r.vergeben) return json({ ok: false, grund: 'vergeben' }, 409);
     return json({ ok: true, start: r.start, ende: r.ende });
   } catch (e) {

@@ -203,6 +203,8 @@ const timesEl = $('#b-times');
 const submit = $('#b-submit');
 const nameIn = $('#b-name');
 const phoneIn = $('#b-phone');
+const mailIn = $('#b-email');
+const MAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const statusEl = $('#b-status');
 const ticket = $('#ticket');
 const after = $('#t-after');
@@ -291,8 +293,8 @@ $$('#b-topics .b-pill').forEach((b) => {
     update();
   });
 });
-[nameIn, phoneIn].forEach((el) => el.addEventListener('input', update));
-const valid = () => !!sel.time && nameIn.value.trim().length > 1 && phoneIn.value.replace(/\D/g, '').length >= 6;
+[nameIn, phoneIn, mailIn].forEach((el) => el.addEventListener('input', update));
+const valid = () => !!sel.time && nameIn.value.trim().length > 1 && phoneIn.value.replace(/\D/g, '').length >= 6 && MAIL.test(mailIn.value.trim());
 function update() {
   const t = tage[sel.day];
   if (t) $('#t-date').textContent = fLong.format(alsDatum(t.datum));
@@ -314,7 +316,7 @@ form.addEventListener('submit', async (e) => {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        datum: tage[sel.day].datum, zeit: sel.time, name: nameIn.value.trim(), telefon: phoneIn.value.trim(),
+        datum: tage[sel.day].datum, zeit: sel.time, name: nameIn.value.trim(), telefon: phoneIn.value.trim(), email: mailIn.value.trim(),
         rolle: sel.role, themen: sel.topics, website: $('#b-website').value,
       }),
     });

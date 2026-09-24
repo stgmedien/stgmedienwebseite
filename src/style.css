@@ -227,6 +227,7 @@ a{color:inherit;text-decoration:none}
 .b-form.is-offline .b-step,.b-form.is-offline .b-submit,.b-form.is-offline .b-hint{display:none}
 .b-grid.is-offline .ticket{display:none}
 .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.b-field.b-wide{grid-column:1/-1}
 @media (max-width:520px){.b-times{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 /* Rechtliche Seiten */
