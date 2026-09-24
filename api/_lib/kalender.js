@@ -1,7 +1,7 @@
 // Google-Kalender-Anbindung für die Rückruf-Termine.
 // Umgebungsvariablen (in Vercel, dieselben Werte wie bei ImmoHero):
 //   GOOGLE_CALENDAR_CLIENT_ID, GOOGLE_CALENDAR_CLIENT_SECRET, GOOGLE_CALENDAR_REFRESH_TOKEN
-//   GOOGLE_CALENDAR_ID (optional, Standard "primary")
+//   GOOGLE_CALENDAR_ID (optional, sonst gilt "kalender" aus config/rueckruf.js)
 // Lokal kann RUECKRUF_DEMO=1 in .env.local gesetzt werden: dann gibt es freie Zeiten ohne Google.
 import regeln from '../../config/rueckruf.js';
 
@@ -13,7 +13,7 @@ export const THEMEN = ['Fotos', 'Video', 'Drohne', 'Grundriss', 'Home Staging', 
 
 const env = (k) => process.env[k];
 const demo = () => env('RUECKRUF_DEMO') === '1';
-const kalenderId = () => env('GOOGLE_CALENDAR_ID') || 'primary';
+const kalenderId = () => env('GOOGLE_CALENDAR_ID') || regeln.kalender || 'primary';
 
 export function istKonfiguriert() {
   return demo() || Boolean(env('GOOGLE_CALENDAR_CLIENT_ID') && env('GOOGLE_CALENDAR_CLIENT_SECRET') && env('GOOGLE_CALENDAR_REFRESH_TOKEN'));
@@ -73,6 +73,7 @@ function plusTage(datumStr, n) {
   return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10);
 }
 const minuten = (z) => { const [h, m] = z.split(':').map(Number); return h * 60 + m; };
+const tagVon = (ms) => new Intl.DateTimeFormat('en-CA', { timeZone: regeln.zeitzone }).format(new Date(ms));
 const alsZeit = (n) => `${String(Math.floor(n / 60)).padStart(2, '0')}:${String(n % 60).padStart(2, '0')}`;
 
 /* Alle Tage im Buchungszeitraum mit ihren möglichen Startzeiten (noch ohne Kalenderabgleich) */
@@ -91,25 +92,52 @@ function kandidaten() {
   return tage;
 }
 
+/* Belegte Zeiten aus den blockierenden Kalendern und die Zahl der Rückrufe pro Tag */
+async function belegteZeiten(von, bis) {
+  const tz = regeln.zeitzone;
+  const kalender = regeln.blockierendeKalender.map((id) => (id === 'primary' ? kalenderId() : id));
+  const belegt = [], gebuchtProTag = {};
+  if (regeln.alleTermineBlockieren) {
+    // Jeder Eintrag zählt, auch ganztägige und „verfügbare“ – nur abgesagte Einladungen nicht
+    for (const id of kalender) {
+      let seite;
+      do {
+        const q = new URLSearchParams({ timeMin: von.toISOString(), timeMax: bis.toISOString(), singleEvents: 'true', maxResults: '2500' });
+        if (seite) q.set('pageToken', seite);
+        const res = await google(`/calendars/${encodeURIComponent(id)}/events?${q}`);
+        for (const e of res.items || []) {
+          if (e.status === 'cancelled') continue;
+          if ((e.attendees || []).some((a) => a.self && a.responseStatus === 'declined')) continue;
+          const s = e.start?.dateTime ? Date.parse(e.start.dateTime) : ortszeitZuUtc(e.start.date, '00:00', tz).getTime();
+          const en = e.end?.dateTime ? Date.parse(e.end.dateTime) : ortszeitZuUtc(e.end.date, '00:00', tz).getTime();
+          belegt.push([s, en]);
+          if (e.extendedProperties?.private?.stg === 'rueckruf') gebuchtProTag[tagVon(s)] = (gebuchtProTag[tagVon(s)] || 0) + 1;
+        }
+        seite = res.nextPageToken;
+      } while (seite);
+    }
+  } else {
+    const fb = await google('/freeBusy', {
+      method: 'POST',
+      body: JSON.stringify({ timeMin: von.toISOString(), timeMax: bis.toISOString(), timeZone: tz, items: kalender.map((id) => ({ id })) }),
+    });
+    for (const k of Object.values(fb.calendars || {})) for (const b of k.busy || []) belegt.push([Date.parse(b.start), Date.parse(b.end)]);
+    const ev = await google(`/calendars/${encodeURIComponent(kalenderId())}/events?${new URLSearchParams({ timeMin: von.toISOString(), timeMax: bis.toISOString(), singleEvents: 'true', maxResults: '250', privateExtendedProperty: 'stg=rueckruf' })}`);
+    for (const e of ev.items || []) {
+      const start = e.start?.dateTime || e.start?.date;
+      if (start) gebuchtProTag[tagVon(Date.parse(start))] = (gebuchtProTag[tagVon(Date.parse(start))] || 0) + 1;
+    }
+  }
+  return { belegt, gebuchtProTag };
+}
+
 /* Freie Termine: Raster minus Vorlauf, belegte Zeiten (mit Puffer) und volle Tage */
 export async function freieTermine() {
   const tz = regeln.zeitzone, tage = kandidaten();
   if (!tage.length) return [];
   const von = ortszeitZuUtc(tage[0].datum, '00:00', tz);
   const bis = ortszeitZuUtc(plusTage(tage[tage.length - 1].datum, 1), '00:00', tz);
-  let belegt = [], gebuchtProTag = {};
-  if (!demo()) {
-    const fb = await google('/freeBusy', {
-      method: 'POST',
-      body: JSON.stringify({ timeMin: von.toISOString(), timeMax: bis.toISOString(), timeZone: tz, items: regeln.blockierendeKalender.map((id) => ({ id: id === 'primary' ? kalenderId() : id })) }),
-    });
-    belegt = Object.values(fb.calendars || {}).flatMap((k) => k.busy || []).map((b) => [Date.parse(b.start), Date.parse(b.end)]);
-    const ev = await google(`/calendars/${encodeURIComponent(kalenderId())}/events?${new URLSearchParams({ timeMin: von.toISOString(), timeMax: bis.toISOString(), singleEvents: 'true', maxResults: '250', privateExtendedProperty: 'stg=rueckruf' })}`);
-    for (const e of ev.items || []) {
-      const start = e.start?.dateTime || e.start?.date;
-      if (start) { const d = new Intl.DateTimeFormat('en-CA', { timeZone: tz }).format(new Date(start)); gebuchtProTag[d] = (gebuchtProTag[d] || 0) + 1; }
-    }
-  }
+  const { belegt, gebuchtProTag } = demo() ? { belegt: [], gebuchtProTag: {} } : await belegteZeiten(von, bis);
   const frueheste = Date.now() + regeln.vorlaufStunden * 3600_000, puffer = regeln.pufferMinuten * 60_000, dauer = regeln.dauerMinuten * 60_000;
   return tage
     .filter((t) => (gebuchtProTag[t.datum] || 0) < regeln.maxProTag)
