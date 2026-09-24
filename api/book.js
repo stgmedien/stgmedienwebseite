@@ -1,7 +1,8 @@
-import { istKonfiguriert, termineintragen, json, ROLLEN, THEMEN } from './_lib/kalender.js';
+import { anfrage, istKonfiguriert, termineintragen, json, ROLLEN, THEMEN } from './_lib/kalender.js';
 
 // POST /api/book – Rückruf-Termin im Google-Kalender eintragen
 export async function POST(request) {
+  anfrage(request);
   if (!istKonfiguriert()) return json({ ok: false, grund: 'nicht-konfiguriert' }, 503);
   let d;
   try { d = await request.json(); } catch { return json({ ok: false, grund: 'eingabe' }, 400); }

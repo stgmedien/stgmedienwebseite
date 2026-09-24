@@ -1,8 +1,11 @@
 // Google-Kalender-Anbindung für die Rückruf-Termine.
-// Umgebungsvariablen (in Vercel, dieselben Werte wie bei ImmoHero):
-//   GOOGLE_CALENDAR_CLIENT_ID, GOOGLE_CALENDAR_CLIENT_SECRET, GOOGLE_CALENDAR_REFRESH_TOKEN
-//   GOOGLE_CALENDAR_ID (optional, sonst gilt "kalender" aus config/rueckruf.js)
+// Standard: ohne geheimen Schlüssel. Vercel weist sich per OIDC bei Google aus (Workload Identity
+// Federation) und nutzt ein Dienstkonto, für das der Kalender freigegeben ist. Umgebungsvariablen:
+//   GCP_PROJECT_NUMBER, GCP_SERVICE_ACCOUNT_EMAIL, GCP_WORKLOAD_IDENTITY_POOL_ID, GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID
+// Alternativ OAuth: GOOGLE_CALENDAR_CLIENT_ID, GOOGLE_CALENDAR_CLIENT_SECRET, GOOGLE_CALENDAR_REFRESH_TOKEN
+// GOOGLE_CALENDAR_ID ist optional, sonst gilt "kalender" aus config/rueckruf.js.
 // Lokal kann RUECKRUF_DEMO=1 in .env.local gesetzt werden: dann gibt es freie Zeiten ohne Google.
+import { getVercelOidcToken } from '@vercel/oidc';
 import regeln from '../../config/rueckruf.js';
 
 const API = 'https://www.googleapis.com/calendar/v3';
@@ -15,14 +18,56 @@ const env = (k) => process.env[k];
 const demo = () => env('RUECKRUF_DEMO') === '1';
 const kalenderId = () => env('GOOGLE_CALENDAR_ID') || regeln.kalender || 'primary';
 
+const ohneSchluessel = () => Boolean(env('GCP_PROJECT_NUMBER') && env('GCP_SERVICE_ACCOUNT_EMAIL'));
+const mitOAuth = () => Boolean(env('GOOGLE_CALENDAR_CLIENT_ID') && env('GOOGLE_CALENDAR_CLIENT_SECRET') && env('GOOGLE_CALENDAR_REFRESH_TOKEN'));
+
 export function istKonfiguriert() {
-  return demo() || Boolean(env('GOOGLE_CALENDAR_CLIENT_ID') && env('GOOGLE_CALENDAR_CLIENT_SECRET') && env('GOOGLE_CALENDAR_REFRESH_TOKEN'));
+  return demo() || ohneSchluessel() || mitOAuth();
+}
+
+/* Vercel-OIDC-Token der aktuellen Anfrage */
+let oidc = null;
+export function anfrage(request) {
+  oidc = request?.headers?.get?.('x-vercel-oidc-token') || null;
+}
+async function vercelToken() {
+  if (oidc) return oidc;
+  return getVercelOidcToken();
+}
+
+/* Ohne Schlüssel: Vercel-OIDC → Google STS → Zugriffstoken des Dienstkontos */
+async function dienstkontoToken() {
+  const pool = env('GCP_WORKLOAD_IDENTITY_POOL_ID') || 'vercel';
+  const provider = env('GCP_WORKLOAD_IDENTITY_POOL_PROVIDER_ID') || 'vercel';
+  const sts = await fetch('https://sts.googleapis.com/v1/token', {
+    method: 'POST',
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
+      audience: `//iam.googleapis.com/projects/${env('GCP_PROJECT_NUMBER')}/locations/global/workloadIdentityPools/${pool}/providers/${provider}`,
+      scope: 'https://www.googleapis.com/auth/cloud-platform',
+      requested_token_type: 'urn:ietf:params:oauth:token-type:access_token',
+      subject_token_type: 'urn:ietf:params:oauth:token-type:jwt',
+      subject_token: await vercelToken(),
+    }),
+  });
+  if (!sts.ok) throw new Error(`Google STS: ${sts.status} ${await sts.text()}`);
+  const { access_token } = await sts.json();
+  const res = await fetch(`https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/${encodeURIComponent(env('GCP_SERVICE_ACCOUNT_EMAIL'))}:generateAccessToken`, {
+    method: 'POST',
+    headers: { authorization: `Bearer ${access_token}`, 'content-type': 'application/json' },
+    body: JSON.stringify({ scope: ['https://www.googleapis.com/auth/calendar'], lifetime: '3600s' }),
+  });
+  if (!res.ok) throw new Error(`Google-Dienstkonto: ${res.status} ${await res.text()}`);
+  const d = await res.json();
+  return { wert: d.accessToken, bis: Date.parse(d.expireTime) };
 }
 
 /* Zugriffstoken aus dem Refresh-Token, zwischengespeichert bis kurz vor Ablauf */
 let token = null;
 async function zugriff() {
   if (token && token.bis > Date.now() + 60_000) return token.wert;
+  if (ohneSchluessel()) { token = await dienstkontoToken(); return token.wert; }
   const res = await fetch('https://oauth2.googleapis.com/token', {
     method: 'POST',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
