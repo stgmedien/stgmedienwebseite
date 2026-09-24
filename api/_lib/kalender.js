@@ -48,6 +48,11 @@ async function google(pfad, init = {}) {
   return res.json();
 }
 
+/* Für das Protokoll: mit welchem Google-Konto die Seite verbunden ist */
+export async function verbundenesKonto() {
+  try { return (await google('/users/me/calendarList/primary')).id; } catch (e) { return `unbekannt (${e.message.slice(0, 80)})`; }
+}
+
 /* Zeitzonen-Helfer ohne Bibliothek */
 function versatzMs(datum, tz) {
   const teile = new Intl.DateTimeFormat('en-US', {

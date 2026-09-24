@@ -1,4 +1,4 @@
-import { freieTermine, istKonfiguriert, json } from './_lib/kalender.js';
+import { freieTermine, istKonfiguriert, json, verbundenesKonto } from './_lib/kalender.js';
 import regeln from '../config/rueckruf.js';
 
 // GET /api/slots – freie Rückruf-Termine der nächsten Tage
@@ -7,7 +7,7 @@ export async function GET() {
   try {
     return json({ ok: true, dauerMinuten: regeln.dauerMinuten, tage: await freieTermine() });
   } catch (e) {
-    console.error(e);
+    console.error('Rückruf-Termine:', e.message, '| verbundenes Konto:', await verbundenesKonto());
     return json({ ok: false, grund: 'kalender' }, 502);
   }
 }
