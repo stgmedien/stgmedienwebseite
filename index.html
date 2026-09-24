@@ -6,6 +6,14 @@
 <title>STG Medien · Immobilienmedien aus Gütersloh</title>
 <meta name="description" content="Foto, Video, Drohne, Grundriss, Home Staging und Exposé für Makler und Bauträger – aus einer Hand.">
 <meta name="theme-color" content="#12213A">
+<link rel="canonical" href="https://stg-medien.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="STG Medien">
+<meta property="og:title" content="STG Medien · Großes Kino für Immobilien">
+<meta property="og:description" content="Foto, Video, Drohne, Grundriss, Home Staging und Exposé für Makler und Bauträger – aus einer Hand.">
+<meta property="og:image" content="https://stg-medien.com/media/stills/poster.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -102,7 +110,7 @@
   </div>
   <div class="why-row">
     <div class="mq outline" aria-hidden="true"><span>Schnell <i class="sq"></i></span><span>Schnell <i class="sq"></i></span><span>Schnell <i class="sq"></i></span><span>Schnell <i class="sq"></i></span><span>Schnell <i class="sq"></i></span><span>Schnell <i class="sq"></i></span></div>
-    <p class="why-proof"><span class="over">Schnell</span>Ein Drehtag, die ersten Fotos am nächsten Werktag.</p>
+    <p class="why-proof"><span class="over">Schnell</span>Ein Drehtag, die fertigen Medien auf Wunsch innerhalb eines Tages.</p>
   </div>
   <div class="why-row">
     <div class="mq" aria-hidden="true"><span>Persönlich <i class="sq"></i></span><span>Persönlich <i class="sq"></i></span><span>Persönlich <i class="sq"></i></span><span>Persönlich <i class="sq"></i></span><span>Persönlich <i class="sq"></i></span><span>Persönlich <i class="sq"></i></span></div>
@@ -120,12 +128,12 @@
     <li class="p-row" data-img="/media/stills/projekt-4.jpg" data-cursor="Ansehen"><div class="p-thumb" style="background-image:url(/media/stills/projekt-4.jpg)"></div><span class="p-name">Neubauwohnung</span><span class="over p-tags">Video · Grundriss · Staging</span></li>
     <li class="p-row" data-img="/media/stills/projekt-5.jpg" data-cursor="Ansehen"><div class="p-thumb" style="background-image:url(/media/stills/projekt-5.jpg)"></div><span class="p-name">Wohnlage</span><span class="over p-tags">Drohne · Lage · Umgebung</span></li>
   </ul>
-  <p class="p-note">Projektnamen und Orte folgen. Alle Bilder stammen aus dem Showreel.</p>
+  <p class="p-note">Alle Bilder stammen aus eigenen Produktionen.</p>
   <div class="p-preview" id="p-preview" aria-hidden="true"><span>Standbild folgt</span></div>
 </section>
 
 <section class="founder" id="persoenlich" aria-labelledby="f-h">
-  <div class="f-portrait"><svg viewBox="0 0 404 462" aria-hidden="true"><use href="#stg-mark"/></svg><p class="over">Porträt folgt</p></div>
+  <div class="f-portrait"><img src="/media/jonathan.webp" alt="Jonathan Kreutzheide, Gründer von STG Medien" width="900" height="1124" loading="lazy" decoding="async"></div>
   <div class="f-body">
     <p class="over">Persönlich</p>
     <h2 class="f-quote" id="f-h">Ich rufe Sie selbst an.</h2>
@@ -138,7 +146,8 @@
   <p class="over">Rückruf-Termin</p>
   <h2 id="book-h">Wann darf ich Sie anrufen?</h2>
   <div class="b-grid">
-    <form id="b-form" novalidate>
+    <form id="b-form" class="b-form" novalidate>
+      <p class="b-status" id="b-status" role="status">Freie Zeiten werden geladen …</p>
       <div class="b-step"><p class="over">1 · Tag</p><div class="b-days" id="b-days"></div></div>
       <div class="b-step"><p class="over">2 · Uhrzeit</p><div class="b-times" id="b-times"></div></div>
       <div class="b-step"><p class="over">3 · Ihre Angaben</p>
@@ -153,8 +162,9 @@
       <div class="b-step"><p class="over">Worum geht es?</p>
         <div class="b-pills" id="b-topics" role="group" aria-label="Worum geht es?"><button type="button" class="b-pill" id="t-fotos" aria-pressed="true">Fotos</button><button type="button" class="b-pill" id="t-video" aria-pressed="false">Video</button><button type="button" class="b-pill" id="t-drohne" aria-pressed="true">Drohne</button><button type="button" class="b-pill" id="t-grundriss" aria-pressed="false">Grundriss</button><button type="button" class="b-pill" id="t-staging" aria-pressed="false">Home Staging</button><button type="button" class="b-pill" id="t-expose" aria-pressed="false">Exposé</button></div>
       </div>
+      <div class="hp" aria-hidden="true"><label for="b-website">Website</label><input id="b-website" name="website" tabindex="-1" autocomplete="off"></div>
       <button type="submit" class="b-submit" id="b-submit">Rückruf festmachen</button>
-      <p class="b-hint">Prototyp: Es wird noch nichts gebucht.</p>
+      <p class="b-hint">Der Termin wird sofort in meinem Kalender eingetragen. Ich rufe Sie zur gewählten Zeit an.</p>
     </form>
     <div>
       <div class="ticket" id="ticket" aria-live="polite">
@@ -164,18 +174,18 @@
           <p class="t-time" id="t-time">10:30</p>
           <p class="t-who"><b>Jonathan Kreutzheide</b> ruft <span id="t-name">Sie</span><span id="t-phone"></span> an.</p>
           <p class="t-meta" id="t-topics">Thema: Fotos, Drohne · Makler</p>
-          <p class="t-stamp">Vorgemerkt</p>
+          <p class="t-stamp">Bestätigt</p>
         </div>
         <div class="t-stub"><svg class="t-mark" viewBox="0 0 404 462" aria-hidden="true"><use href="#stg-mark"/></svg><p class="over">ca. 15 Minuten</p></div>
       </div>
-      <div class="t-after" id="t-after"><p>Im echten Betrieb landet der Termin jetzt in Jonathans Kalender, und Sie bekommen eine Bestätigung.</p><button type="button" class="btn btn-secondary" id="t-reset">Termin ändern</button></div>
+      <div class="t-after" id="t-after"><p>Der Termin steht in meinem Kalender. Ich rufe Sie pünktlich an.</p><button type="button" class="btn btn-secondary" id="t-reset">Weiteren Termin buchen</button></div>
     </div>
   </div>
 </section>
 
 <footer class="foot">
   <svg class="foot-logo" viewBox="0 0 1104 462" role="img" aria-label="STG Medien"><use href="#stg-logo"/></svg>
-  <div class="foot-cols"><span>The Visibility Company</span><span>Gütersloh</span><span>Impressum</span><span>Datenschutz</span><span>© 2026 STG Medien</span></div>
+  <div class="foot-cols"><span>The Visibility Company</span><a href="mailto:jonathan@stg-medien.com">jonathan@stg-medien.com</a><a href="tel:+4915906828151">0159 06828151</a><span>Gütersloh</span><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><span>© 2026 STG Medien</span></div>
 </footer>
 </main>
 

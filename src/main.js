@@ -195,55 +195,87 @@ if (fine && !reduce) {
   cur.hidden = true;
 }
 
-/* Rückruf-Termin mit Kinokarte (noch ohne Buchungssystem) */
+/* Rückruf-Termin: freie Zeiten kommen aus dem Google-Kalender, die Buchung trägt den Termin direkt ein */
+const form = $('#b-form');
+const grid = $('.b-grid');
 const daysEl = $('#b-days');
 const timesEl = $('#b-times');
-const form = $('#b-form');
 const submit = $('#b-submit');
 const nameIn = $('#b-name');
 const phoneIn = $('#b-phone');
+const statusEl = $('#b-status');
 const ticket = $('#ticket');
 const after = $('#t-after');
-const TIMES = ['09:00', '10:30', '12:00', '14:00', '15:30', '17:00'];
+const KONTAKT = 'Rufen Sie mich gern direkt an: <a href="tel:+4915906828151">0159 06828151</a>, oder schreiben Sie an <a href="mailto:jonathan@stg-medien.com">jonathan@stg-medien.com</a>.';
 const fShort = new Intl.DateTimeFormat('de-DE', { weekday: 'short' });
 const fMon = new Intl.DateTimeFormat('de-DE', { month: 'short' });
 const fLong = new Intl.DateTimeFormat('de-DE', { weekday: 'long', day: 'numeric', month: 'long' });
-const dayList = [];
-let d = new Date();
-d.setHours(12, 0, 0, 0);
-while (dayList.length < 6) { d = new Date(d.getTime() + 864e5); if (d.getDay() % 6 !== 0) dayList.push(new Date(d)); }
-const sel = { day: 0, time: '10:30', role: 'Makler', topics: ['Fotos', 'Drohne'] };
+const alsDatum = (s) => new Date(`${s}T12:00:00`);
 const strip = (s) => s.replace('.', '');
-const busy = (di, ti) => (di * 5 + ti * 3) % 7 === 0;
+const sel = { day: 0, time: null, role: 'Makler', topics: ['Fotos', 'Drohne'] };
+let tage = [];
+let sendet = false;
 
-dayList.forEach((dt, i) => {
-  const b = document.createElement('button');
-  b.type = 'button'; b.className = 'b-day'; b.id = `b-day-${i}`;
-  b.setAttribute('aria-label', fLong.format(dt));
-  b.innerHTML = '<span class="d1"></span><span class="d2"></span><span class="d3"></span>';
-  b.children[0].textContent = strip(fShort.format(dt));
-  b.children[1].textContent = `${dt.getDate()}.`;
-  b.children[2].textContent = strip(fMon.format(dt));
-  b.addEventListener('click', () => { sel.day = i; renderDays(); renderTimes(); update(); });
-  daysEl.appendChild(b);
-});
-TIMES.forEach((t, j) => {
-  const b = document.createElement('button');
-  b.type = 'button'; b.className = 'b-time'; b.id = `b-time-${j}`; b.textContent = t;
-  b.addEventListener('click', () => { sel.time = t; renderTimes(); update(); });
-  timesEl.appendChild(b);
-});
-function renderDays() {
+function offline(text) {
+  form.classList.add('is-offline');
+  grid.classList.add('is-offline');
+  statusEl.innerHTML = `${text} ${KONTAKT}`;
+}
+function markDays() {
   $$('.b-day', daysEl).forEach((b, i) => b.setAttribute('aria-pressed', String(i === sel.day)));
 }
-function renderTimes() {
-  $$('.b-time', timesEl).forEach((b, j) => {
-    const t = TIMES[j], taken = busy(sel.day, j);
-    if (taken && sel.time === t) sel.time = null;
-    b.disabled = taken;
-    b.setAttribute('aria-label', taken ? `${t} Uhr, schon vergeben` : `${t} Uhr`);
-    b.setAttribute('aria-pressed', String(!taken && sel.time === t));
+function renderDays() {
+  daysEl.innerHTML = '';
+  tage.forEach((t, i) => {
+    const dt = alsDatum(t.datum);
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'b-day'; b.id = `b-day-${i}`;
+    b.setAttribute('aria-label', fLong.format(dt));
+    b.innerHTML = '<span class="d1"></span><span class="d2"></span><span class="d3"></span>';
+    b.children[0].textContent = strip(fShort.format(dt));
+    b.children[1].textContent = `${dt.getDate()}.`;
+    b.children[2].textContent = strip(fMon.format(dt));
+    b.addEventListener('click', () => {
+      sel.day = i;
+      if (!tage[i].zeiten.includes(sel.time)) sel.time = tage[i].zeiten[0];
+      markDays(); renderTimes(); update();
+    });
+    daysEl.appendChild(b);
   });
+  markDays();
+}
+function renderTimes() {
+  timesEl.innerHTML = '';
+  tage[sel.day].zeiten.forEach((t, j) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'b-time'; b.id = `b-time-${j}`; b.textContent = t;
+    b.setAttribute('aria-label', `${t} Uhr`);
+    b.setAttribute('aria-pressed', String(sel.time === t));
+    b.addEventListener('click', () => {
+      sel.time = t;
+      $$('.b-time', timesEl).forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      update();
+    });
+    timesEl.appendChild(b);
+  });
+}
+async function ladeTermine(auswahlBehalten = false) {
+  statusEl.textContent = 'Freie Zeiten werden geladen …';
+  try {
+    const res = await fetch('/api/slots', { cache: 'no-store' });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) throw new Error(data.grund || String(res.status));
+    tage = data.tage.slice(0, 6);
+    if (!tage.length) { offline('In den nächsten Tagen ist leider kein Rückruf-Termin frei.'); return; }
+    form.classList.remove('is-offline');
+    grid.classList.remove('is-offline');
+    statusEl.textContent = '';
+    if (!auswahlBehalten || sel.day >= tage.length) sel.day = 0;
+    if (!tage[sel.day].zeiten.includes(sel.time)) sel.time = tage[sel.day].zeiten[0];
+    renderDays(); renderTimes(); update();
+  } catch {
+    offline('Die Online-Buchung ist gerade nicht erreichbar.');
+  }
 }
 $$('#b-role .b-pill').forEach((b) => {
   b.addEventListener('click', () => {
@@ -262,31 +294,58 @@ $$('#b-topics .b-pill').forEach((b) => {
 [nameIn, phoneIn].forEach((el) => el.addEventListener('input', update));
 const valid = () => !!sel.time && nameIn.value.trim().length > 1 && phoneIn.value.replace(/\D/g, '').length >= 6;
 function update() {
-  $('#t-date').textContent = fLong.format(dayList[sel.day]);
+  const t = tage[sel.day];
+  if (t) $('#t-date').textContent = fLong.format(alsDatum(t.datum));
   $('#t-time').textContent = sel.time || '––:––';
   const n = nameIn.value.trim(), ph = phoneIn.value.trim();
   $('#t-name').textContent = n || 'Sie';
   $('#t-phone').textContent = ph ? ` unter ${ph}` : '';
   $('#t-topics').textContent = `${sel.topics.length ? `Thema: ${sel.topics.join(', ')}` : 'Thema: noch offen'} · ${sel.role}`;
-  if (!ticket.classList.contains('is-booked')) submit.disabled = !valid();
+  if (!ticket.classList.contains('is-booked') && !sendet) submit.disabled = !valid();
 }
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  if (!valid()) return;
-  ticket.classList.add('is-booked');
-  after.classList.add('is-on');
+  if (!valid() || sendet) return;
+  sendet = true;
   submit.disabled = true;
-  submit.textContent = 'Vorgemerkt';
-  if (!reduce) gsap.fromTo(ticket, { y: 24, rotation: -1.5 }, { y: 0, rotation: 0, duration: 0.9, ease: 'elastic.out(1, 0.6)' });
+  submit.textContent = 'Wird eingetragen …';
+  try {
+    const res = await fetch('/api/book', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        datum: tage[sel.day].datum, zeit: sel.time, name: nameIn.value.trim(), telefon: phoneIn.value.trim(),
+        rolle: sel.role, themen: sel.topics, website: $('#b-website').value,
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.status === 409) {
+      submit.textContent = 'Rückruf festmachen';
+      sendet = false;
+      await ladeTermine(true);
+      statusEl.textContent = 'Diese Zeit wurde gerade vergeben. Bitte wählen Sie eine andere.';
+      return;
+    }
+    if (!res.ok || !data.ok) throw new Error(data.grund || String(res.status));
+    ticket.classList.add('is-booked');
+    after.classList.add('is-on');
+    submit.textContent = 'Bestätigt';
+    statusEl.textContent = '';
+    if (!reduce) gsap.fromTo(ticket, { y: 24, rotation: -1.5 }, { y: 0, rotation: 0, duration: 0.9, ease: 'elastic.out(1, 0.6)' });
+  } catch {
+    statusEl.innerHTML = `Das hat leider nicht geklappt. ${KONTAKT}`;
+    submit.textContent = 'Rückruf festmachen';
+    submit.disabled = !valid();
+  } finally {
+    sendet = false;
+  }
 });
 $('#t-reset').addEventListener('click', () => {
   ticket.classList.remove('is-booked');
   after.classList.remove('is-on');
   submit.textContent = 'Rückruf festmachen';
-  update();
+  ladeTermine();
 });
-renderDays();
-renderTimes();
-update();
+ladeTermine();
 
 document.fonts?.ready.then(() => ScrollTrigger.refresh());
