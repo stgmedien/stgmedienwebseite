@@ -2,14 +2,14 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "www.stg-medien.com"
         }
       ],
-      "destination": "https://stg-medien.com/:path*",
+      "destination": "https://stg-medien.com/$1",
       "permanent": true
     },
     {
