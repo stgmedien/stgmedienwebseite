@@ -1,15 +1,47 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/datenschutzerklaerung.html", "destination": "/datenschutz", "permanent": true },
-    { "source": "/datenschutzerklaerung", "destination": "/datenschutz", "permanent": true },
-    { "source": "/contact.html", "destination": "/#termin", "permanent": true },
-    { "source": "/contact", "destination": "/#termin", "permanent": true }
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.stg-medien.com"
+        }
+      ],
+      "destination": "https://stg-medien.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/datenschutzerklaerung.html",
+      "destination": "/datenschutz",
+      "permanent": true
+    },
+    {
+      "source": "/datenschutzerklaerung",
+      "destination": "/datenschutz",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/#termin",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#termin",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/media/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
     }
   ]
 }
