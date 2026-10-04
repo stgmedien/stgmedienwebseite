@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Logo-Auswahl Fahrschule Klich · STG Medien</title>
+<meta name="description" content="Drei Logo-Varianten für die Fahrschule Klich, vorbereitet von STG Medien.">
+<style>
+@font-face{font-family:"Hanken Grotesk";src:url(/klich/hk-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(/klich/hk-700.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url(/klich/hk-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(/klich/bc-800.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(/klich/bc-800.woff2) format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Caveat";src:url(/klich/cv-700.woff2) format("woff2");font-weight:700;font-display:swap}
+/* STG Medien: Papier-Grund, Ink-Text, Signal Blue als Aktion. Klich-Logos behalten ihre eigenen Farben auf weißen Bühnen. */
+:root{
+  --ink:#12213A; --signal:#2E5E8C; --slate:#5B7B9E; --paper:#FAFAFB; --line:#DDE3EA; --white:#FFFFFF; --muted:#4A5A70;
+  --k-blue:#0B5CA8; --k-plate:#0B3FA0; --k-yellow:#FFC83D; --k-ink:#14191F; --wa:#25D366; --wa-ink:#0E2A18;
+  --f:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fc:"Barlow Condensed","Arial Narrow",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
+a{color:var(--signal)}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+
+/* Kopf */
+.top{border-bottom:1px solid var(--line);background:var(--white)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap;padding-block:10px}
+.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.brand b{font-weight:700;font-size:20px;letter-spacing:-.01em}
+.brand span{font-size:13px;color:var(--muted)}
+.for{font-size:14px;color:var(--muted)}
+
+/* Einstieg */
+.intro{padding-block:clamp(36px,7vw,72px) clamp(20px,4vw,36px);display:flex;flex-direction:column;gap:14px}
+.eyebrow{margin:0;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+h1{margin:0;font-size:clamp(32px,5.4vw,52px);line-height:1.08;letter-spacing:-.02em;font-weight:700;max-width:18em;text-wrap:balance}
+.lead{margin:0;max-width:40em;color:var(--muted);font-size:18px}
+.claim{align-self:flex-start;display:inline-block;font-family:var(--fc);font-weight:700;font-size:22px;color:var(--k-ink);background:var(--white);border:1px solid var(--line);border-radius:8px;padding:6px 14px;margin-top:4px}
+
+/* Varianten */
+.variants{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;padding-block:8px 32px}
+.v{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s,box-shadow .15s}
+.v.picked{border-color:var(--signal);box-shadow:0 0 0 3px var(--signal)}
+.stage{height:220px;display:grid;place-items:center;padding:20px;background:var(--white);border-bottom:1px solid var(--line);overflow:hidden}
+.alt{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
+.alt > div{height:110px;display:grid;place-items:center;overflow:hidden}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tag{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin:0}
+.v h2{margin:0;font-size:24px;line-height:1.2;letter-spacing:-.01em}
+.v p{margin:0;color:var(--muted);font-size:16px}
+.pick{margin-top:auto;font:inherit;font-weight:600;font-size:16px;min-height:50px;border-radius:10px;border:2px solid var(--ink);background:var(--white);color:var(--ink);cursor:pointer}
+.pick:hover{background:var(--paper)}
+.v.picked .pick{background:var(--signal);border-color:var(--signal);color:var(--white)}
+
+/* Logos (feste Markenfarben) */
+.plate{display:inline-flex;align-items:stretch;height:1.5em;border:.06em solid var(--k-ink);border-radius:.14em;background:var(--white);overflow:hidden;font-family:var(--fc);font-weight:700;line-height:1;color:var(--k-ink)}
+.plate .eu{width:.5em;background:var(--k-plate);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:.14em 0 .1em}
+.plate .eu i{width:.24em;height:.24em;border-radius:50%;border:.035em dotted var(--k-yellow)}
+.plate .eu span{font-family:var(--f);font-weight:600;font-size:.26em}
+.plate .tx{display:flex;align-items:center;gap:.16em;padding:0 .22em 0 .2em;letter-spacing:.03em}
+.plate .seal{display:flex;flex-direction:column;gap:.05em}
+.plate .seal i{width:.2em;height:.2em;border-radius:50%;background:#C9CED4}
+.plate .seal i:first-child{background:#E89A2B}
+.hl{background:var(--k-yellow);padding:0 .05em;margin-left:.02em}
+.sign{display:inline-flex;flex-direction:column;align-items:center;background:var(--k-blue);border-radius:.1em;padding:.16em .36em .08em;box-shadow:inset 0 0 0 .05em var(--k-blue),inset 0 0 0 .075em var(--white);font-family:var(--fc);font-weight:800;line-height:.92;color:var(--white)}
+.sign small{text-transform:uppercase;font-family:var(--f);font-weight:600;font-size:.17em;letter-spacing:.36em;padding-left:.36em;line-height:1.4}
+.sign b{letter-spacing:.03em;font-weight:800}
+.sign em{font-style:normal;color:var(--k-yellow)}
+.bub{display:inline-flex;align-items:flex-end;font-family:var(--fc);font-weight:800;line-height:.8;color:var(--k-ink)}
+.bub .b{position:relative;margin-left:.06em;margin-bottom:.3em;background:var(--k-yellow);color:var(--k-ink);border-radius:.2em;padding:.06em .18em .14em;font-family:"Caveat",cursive;font-weight:700;font-size:.72em;line-height:.8}
+.bub .b::after{content:"";position:absolute;left:.16em;bottom:-.2em;border-left:.24em solid var(--k-yellow);border-bottom:.22em solid transparent}
+.bub.on-dark{color:var(--white)}
+.sub{font-family:var(--f);font-weight:600;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#3A424A}
+.col{display:flex;flex-direction:column;align-items:center;gap:14px}
+.avatar{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 3px var(--white),0 0 0 5px var(--line);font-family:var(--fc);font-weight:800;line-height:.85;text-align:center}
+.mini-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:6px}
+.cell{display:flex;flex-direction:column;align-items:center}
+
+/* Auswahl senden */
+.send{background:var(--ink);color:var(--white);border-radius:16px;padding:clamp(22px,4vw,36px);display:flex;flex-direction:column;gap:14px;margin-block:8px 48px}
+.send h2{margin:0;font-size:clamp(24px,3.4vw,32px);line-height:1.15;letter-spacing:-.01em}
+.send p{margin:0;color:#C9D3E0;max-width:40em}
+.send .choice{font-weight:700;color:var(--white)}
+.send label{font-weight:600;font-size:15px;color:var(--white)}
+.send textarea{font:inherit;font-size:16px;min-height:96px;padding:12px 14px;border-radius:10px;border:1px solid #3A4A63;background:#1A2C49;color:var(--white);resize:vertical;width:100%;max-width:40em}
+.send textarea::placeholder{color:#8EA0B8}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 24px;border-radius:10px;background:var(--wa);color:var(--wa-ink);font-weight:700;font-size:17px;text-decoration:none;border:none}
+.btn-wa[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.btn-mail{color:var(--white);font-weight:600;min-height:44px;display:inline-flex;align-items:center}
+.hint{font-size:14px;color:#8EA0B8}
+
+/* Über STG */
+.about{border-top:1px solid var(--line);padding-block:clamp(36px,6vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 40px}
+.about h2{margin:0;font-size:clamp(26px,3.6vw,36px);line-height:1.12;letter-spacing:-.015em;text-wrap:balance}
+.about .txt{display:flex;flex-direction:column;gap:12px}
+.about .txt p{margin:0;color:var(--muted)}
+.vals{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+.vals li{display:flex;flex-direction:column;gap:2px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.vals li:last-child{border-bottom:none;padding-bottom:0}
+.vals b{font-size:18px}
+.vals span{color:var(--muted)}
+
+footer{background:var(--white);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;padding-block:22px;font-size:14px;color:var(--muted)}
+footer nav{display:flex;gap:18px;flex-wrap:wrap}
+footer a{color:var(--muted);min-height:44px;display:inline-flex;align-items:center}
+@media (prefers-reduced-motion:reduce){.v{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+<div class="wrap">
+<a class="brand" href="https://stg-medien.com"><b>STG Medien</b><span>Gütersloh</span></a>
+<span class="for">Vorbereitet für die Fahrschule Klich</span>
+</div>
+</header>
+
+<main class="wrap">
+<section class="intro">
+<p class="eyebrow">Logo-Auswahl · Fahrschule Klich</p>
+<h1>Welches Logo passt am besten zu Ihrer Fahrschule?</h1>
+<p class="lead">Alle drei Entwürfe beruhen auf einer Idee: In „Klich“ steckt „ICH“. Damit steht schon im Namen, worum es bei Ihnen geht, nämlich um den einzelnen Fahrschüler. Das passt zu dem Satz, mit dem die neue Website und die Werbung starten:</p>
+<span class="claim">Bei Klich macht’s Klick. Weil du bei uns keine Nummer bist.</span>
+<p class="lead">Schauen Sie sich die drei Varianten in Ruhe an, wählen Sie Ihren Favoriten und schicken Sie mir Ihre Wahl mit einem Fingertipp.</p>
+</section>
+
+<section class="variants" aria-label="Logo-Varianten">
+
+<article class="v" id="v-A">
+<div class="stage"><div class="col"><span class="plate" style="font-size:54px"><span class="eu"><i></i><span>D</span></span><span class="tx">GT<span class="seal"><i></i><i></i></span><span>KL<span class="hl">ICH</span></span></span></span><span class="sub">Fahrschule</span></div></div>
+<div class="alt">
+<div style="background:var(--k-blue)"><div class="cell"><span class="plate" style="font-size:24px"><span class="eu"><i></i><span>D</span></span><span class="tx">GT<span class="seal"><i></i><i></i></span><span>KL<span class="hl">ICH</span></span></span></span></div></div>
+<div><div class="cell"><span class="avatar" style="background:var(--k-yellow);color:var(--k-ink);font-size:30px">KL<br>ICH</span><span class="mini-label">Instagram</span></div></div>
+</div>
+<div class="body">
+<p class="tag">Variante A</p>
+<h2>Das Kennzeichen</h2>
+<p>Das Gütersloher Nummernschild kennt jeder. GT steht für die Heimat, das gelbe ICH für den Schüler. Passt aufs Auto, auf Instagram und auf Aufkleber und ist in der Region unverwechselbar.</p>
+<button class="pick" type="button" data-v="A" aria-pressed="false">Variante A wählen</button>
+</div>
+</article>
+
+<article class="v" id="v-B">
+<div class="stage"><span class="sign" style="font-size:86px"><small>Fahrschule</small><b>KL<em>ICH</em></b></span></div>
+<div class="alt">
+<div style="background:var(--k-ink)"><span class="sign" style="font-size:36px"><small>Fahrschule</small><b>KL<em>ICH</em></b></span></div>
+<div><div class="cell"><span class="avatar" style="background:var(--k-blue);color:var(--white);font-size:30px">KL<br><span style="color:var(--k-yellow)">ICH</span></span><span class="mini-label">Instagram</span></div></div>
+</div>
+<div class="body">
+<p class="tag">Variante B</p>
+<h2>Das Dachschild</h2>
+<p>Das blaue Schild vom Fahrschulauto, mit Ihrem Namen darin. Man sieht sofort, dass es um den Führerschein geht. Wirkt ruhig und seriös und ist auch von Weitem gut zu lesen.</p>
+<button class="pick" type="button" data-v="B" aria-pressed="false">Variante B wählen</button>
+</div>
+</article>
+
+<article class="v" id="v-C">
+<div class="stage"><div class="col"><span class="bub" style="font-size:118px">KL<span class="b">ich</span></span><span class="sub">Fahrschule</span></div></div>
+<div class="alt">
+<div style="background:var(--k-blue)"><span class="bub on-dark" style="font-size:54px">KL<span class="b">ich</span></span></div>
+<div><div class="cell"><span class="avatar" style="background:var(--k-yellow);color:var(--k-ink);font-size:34px">KL<span style="font-family:'Caveat',cursive;font-size:.85em">ich</span></span><span class="mini-label">Instagram</span></div></div>
+</div>
+<div class="body">
+<p class="tag">Variante C</p>
+<h2>Die Sprechblase</h2>
+<p>„KL“ in kräftiger Schrift, dazu ein handgeschriebenes „ich“ in einer Chatblase. Wirkt persönlich und nahbar, wie eine kurze Nachricht an die Fahrschule. Spricht vor allem junge Fahrschüler an.</p>
+<button class="pick" type="button" data-v="C" aria-pressed="false">Variante C wählen</button>
+</div>
+</article>
+
+</section>
+
+<section class="send" aria-labelledby="h-send">
+<h2 id="h-send">Ihre Wahl: <span class="choice" id="choice">noch keine Variante gewählt</span></h2>
+<p>Möchten Sie noch etwas ändern, zum Beispiel eine Farbe oder die Schrift? Dann schreiben Sie es einfach dazu. Nach Ihrer Wahl arbeite ich das Logo fein aus und baue es in Website, Profile und Fahrzeugbeschriftung ein.</p>
+<label for="note">Anmerkung (freiwillig)</label>
+<textarea id="note" placeholder="Zum Beispiel: Variante A, aber das Gelb etwas kräftiger"></textarea>
+<div class="row">
+<a class="btn-wa" id="send-wa" href="https://wa.me/4915906828151" aria-disabled="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Wahl per WhatsApp senden</a>
+<a class="btn-mail" id="send-mail" href="mailto:jonathan@stg-medien.com?subject=Logo-Auswahl%20Fahrschule%20Klich">oder per E-Mail</a>
+</div>
+<span class="hint" id="hint">Bitte wählen Sie zuerst oben eine Variante.</span>
+</section>
+</main>
+
+<section class="wrap about" aria-labelledby="h-about">
+<div class="txt">
+<p class="eyebrow">Über STG Medien</p>
+<h2 id="h-about">Sichtbar werden in Gütersloh und Umgebung.</h2>
+<p>STG Medien ist eine Agentur aus Gütersloh. Wir sorgen dafür, dass Unternehmen aus der Region online gefunden werden und Anfragen bekommen: mit Website, Markenauftritt, Fotos und Videos sowie Werbung auf Instagram und Facebook.</p>
+<p>Für die Fahrschule Klich heißt das: ein klarer Auftritt, eine Website, über die Anmeldungen ankommen, und Werbung, deren Ergebnis wir jeden Monat offenlegen.</p>
+</div>
+<ul class="vals">
+<li><b>Aus einer Hand</b><span>Ein Ansprechpartner für Logo, Website, Inhalte und Werbung.</span></li>
+<li><b>Schnell</b><span>Kurze Wege, klare Termine und Ergebnisse in Tagen statt Monaten.</span></li>
+<li><b>Persönlich</b><span>Der Gründer betreut Ihr Projekt selbst und ist direkt erreichbar.</span></li>
+</ul>
+</section>
+
+<footer>
+<div class="wrap">
+<span>STG Medien · Jonathan Kreutzheide · Gütersloh · <a href="mailto:jonathan@stg-medien.com" style="display:inline;min-height:0">jonathan@stg-medien.com</a></span>
+<nav aria-label="Rechtliches"><a href="https://stg-medien.com">stg-medien.com</a><a href="https://stg-medien.com/impressum">Impressum</a><a href="https://stg-medien.com/datenschutz">Datenschutz</a></nav>
+</div>
+</footer>
+
+<script>
+(function(){
+  var picked = "";
+  var names = {A:"Variante A, das Kennzeichen", B:"Variante B, das Dachschild", C:"Variante C, die Sprechblase"};
+  var wa = document.getElementById("send-wa"), mail = document.getElementById("send-mail");
+  var note = document.getElementById("note"), choice = document.getElementById("choice"), hint = document.getElementById("hint");
+  function msg(){
+    var t = "Hallo Jonathan, für die Fahrschule Klich nehme ich " + names[picked] + ".";
+    if (note.value.trim()) t += "\n\nAnmerkung: " + note.value.trim();
+    return t;
+  }
+  function update(){
+    document.querySelectorAll(".v").forEach(function(card){
+      var on = card.id === "v-" + picked;
+      card.classList.toggle("picked", on);
+      var b = card.querySelector(".pick");
+      b.setAttribute("aria-pressed", String(on));
+      b.textContent = on ? "Ausgewählt" : "Variante " + card.id.slice(2) + " wählen";
+    });
+    if (!picked) return;
+    choice.textContent = names[picked];
+    wa.setAttribute("aria-disabled", "false");
+    wa.href = "https://wa.me/4915906828151?text=" + encodeURIComponent(msg());
+    mail.href = "mailto:jonathan@stg-medien.com?subject=" + encodeURIComponent("Logo-Auswahl Fahrschule Klich") + "&body=" + encodeURIComponent(msg());
+    hint.textContent = "Es öffnet sich WhatsApp mit einer vorbereiteten Nachricht. Sie müssen sie nur noch abschicken.";
+  }
+  document.querySelectorAll(".pick").forEach(function(b){
+    b.addEventListener("click", function(){
+      picked = b.dataset.v; update();
+      if (window.innerWidth < 760) document.getElementById("h-send").scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  });
+  note.addEventListener("input", update);
+})();
+</script>
+</body>
+</html>
