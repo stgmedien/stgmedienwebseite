@@ -36,7 +36,7 @@ h1,h2{hyphens:auto;overflow-wrap:break-word}
 <div style="max-width: 1200px; margin: 0 auto; padding: 10px 20px; min-height: 60px; box-sizing: border-box; display: flex; gap: 16px 32px; align-items: center; justify-content: space-between;">
 <a href="#top" aria-label="Fahrschule Klich, zum Seitenanfang" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #14191F;">
 <img src="/klich/logo.png" alt="" width="64" height="65" style="display: block; width: 64px; height: auto;">
-<span style="display: flex; flex-direction: column; line-height: 1.05;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px;">Fahrschule Klich</span><span style="font-size: 13px; font-weight: 500; color: #3A424A;">Gütersloh · Isselhorst · Marienfeld</span></span>
+<span style="display: flex; flex-direction: column; line-height: 1.05;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px;">Fahrschule Klich</span><span style="font-size: 13px; font-weight: 500; color: #3A424A;">Gütersloh · Spexard · Isselhorst</span></span>
 </a>
 <nav class="k-nav" aria-label="Hauptnavigation" style="gap: 28px; font-weight: 500; font-size: 16px;">
 <a href="#nervoes" style="color: #14191F; text-decoration: none;">So lernst du bei uns</a>
@@ -340,11 +340,6 @@ h1,h2{hyphens:auto;overflow-wrap:break-word}
 <address style="font-style: normal;">Haverkamp 10<br>33334 Gütersloh</address>
 <span style="font-size: 15px; color: #3A424A;">Theorie: Mo + Do, 18:30–20:00 Uhr</span>
 </div>
-<div style="background: #FFFFFF; border: 1px solid #E2E4E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 6px;">
-<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px;">Marienfeld</h3>
-<address style="font-style: normal;">Schwarzer Diek 12<br>33428 Harsewinkel-Marienfeld</address>
-<span style="font-size: 15px; color: #3A424A;">Theorie: [Zeiten]</span>
-</div>
 </div>
 <p style="margin: 0; font-size: 16px; color: #3A424A;"><strong style="color: #14191F;">Außerdem bei uns:</strong> Roller und Motorrad (AM bis A), Automatik (B197), Anhänger (BE, B96), LKW (C1 bis CE), Bus (D1 bis DE), Traktor (L, T) sowie Aufbauseminare für Fahranfänger.</p>
 </div>
@@ -480,7 +475,7 @@ class Component extends DCLogic {
     const backBtn = 'align-self: flex-start; background: none; border: none; padding: 8px 0; min-height: 44px; color: #3A424A; font: inherit; font-weight: 500; cursor: pointer;';
     const pct = { 1: '8%', 2: '33%', 3: '60%', 4: '85%', 5: '100%' }[st.step];
     const C = {
-      B: { label: 'Auto', sub: 'B, BF17, B197', gb: 500, std: 64, sf: 85, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 129.83, fe: 38.30, h: [10, 60, 25], basics: true },
+      B: { label: 'Auto', sub: 'B, BF17, B197', gb: 500, std: 64, sf: 85, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 129.83, fe: 38.30, h: [10, 60, 15], basics: true },
       A1: { label: 'Motorrad 125', sub: 'A1, ab 16', gb: 500, std: 80, sf: 90, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 162.67, fe: 38.30, h: [5, 40, 12], basics: true },
       A2: { label: 'Motorrad A2', sub: 'ab 18', gb: 500, std: 85, sf: 90, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 162.67, fe: 38.30, h: [5, 40, 12], basics: true, own: { std: 60, sf: 80 } },
       A: { label: 'Motorrad A', sub: 'unbeschränkt', gb: 500, std: 85, sf: 95, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 162.67, fe: 38.30, h: [5, 40, 12], basics: true },
