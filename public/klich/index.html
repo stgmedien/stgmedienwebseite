@@ -4,248 +4,565 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<title>Logo-Auswahl Fahrschule Klich · STG Medien</title>
-<meta name="description" content="Drei Logo-Varianten für die Fahrschule Klich, vorbereitet von STG Medien.">
+<title>Fahrschule Klich Gütersloh-Spexard – Führerschein &amp; BF17</title>
+<link rel="icon" href="/klich/logo.png" type="image/png">
 <style>
-@font-face{font-family:"Hanken Grotesk";src:url(/klich/hk-400.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Hanken Grotesk";src:url(/klich/hk-700.woff2) format("woff2");font-weight:600;font-display:swap}
-@font-face{font-family:"Hanken Grotesk";src:url(/klich/hk-700.woff2) format("woff2");font-weight:700;font-display:swap}
-@font-face{font-family:"Barlow Condensed";src:url(/klich/bc-800.woff2) format("woff2");font-weight:700;font-display:swap}
-@font-face{font-family:"Barlow Condensed";src:url(/klich/bc-800.woff2) format("woff2");font-weight:800;font-display:swap}
-@font-face{font-family:"Caveat";src:url(/klich/cv-700.woff2) format("woff2");font-weight:700;font-display:swap}
-/* STG Medien: Papier-Grund, Ink-Text, Signal Blue als Aktion. Klich-Logos behalten ihre eigenen Farben auf weißen Bühnen. */
-:root{
-  --ink:#12213A; --signal:#2E5E8C; --slate:#5B7B9E; --paper:#FAFAFB; --line:#DDE3EA; --white:#FFFFFF; --muted:#4A5A70;
-  --k-blue:#0B5CA8; --k-plate:#0B3FA0; --k-yellow:#FFC83D; --k-ink:#14191F; --wa:#25D366; --wa-ink:#0E2A18;
-  --f:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --fc:"Barlow Condensed","Arial Narrow",sans-serif;
-  color-scheme:light;
+@font-face{font-family:"Barlow";src:url(/klich/barlow-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Barlow";src:url(/klich/barlow-600.woff2) format("woff2");font-weight:500 700;font-display:swap}
+@font-face{font-family:"Barlow Condensed";src:url(/klich/barlowc-700.woff2) format("woff2");font-weight:600 800;font-display:swap}
+
+body{margin:0;background:#F6F7F4}
+a{color:#0072B5}a:hover{color:#005A8E}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #009FE3;outline-offset:2px;box-shadow:0 0 0 5px #14191F}
+.k-nav{display:flex}
+.k-sticky{display:none}
+.k-sec{padding-block:clamp(48px,9vw,88px)}
+@media (max-width:767px){
+  .k-nav{display:none}
+  .k-sticky{display:grid}
+  .k-page{padding-bottom:76px}
 }
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f);font-size:17px;line-height:1.55;-webkit-text-size-adjust:100%}
-a{color:var(--signal)}
-.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
-:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+h1,h2{hyphens:auto;overflow-wrap:break-word}
 
-/* Kopf */
-.top{border-bottom:1px solid var(--line);background:var(--white)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap;padding-block:10px}
-.brand{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
-.brand b{font-weight:700;font-size:20px;letter-spacing:-.01em}
-.brand span{font-size:13px;color:var(--muted)}
-.for{font-size:14px;color:var(--muted)}
-
-/* Einstieg */
-.intro{padding-block:clamp(36px,7vw,72px) clamp(20px,4vw,36px);display:flex;flex-direction:column;gap:14px}
-.eyebrow{margin:0;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
-h1{margin:0;font-size:clamp(32px,5.4vw,52px);line-height:1.08;letter-spacing:-.02em;font-weight:700;max-width:18em;text-wrap:balance}
-.lead{margin:0;max-width:40em;color:var(--muted);font-size:18px}
-.claim{align-self:flex-start;display:inline-block;font-family:var(--fc);font-weight:700;font-size:22px;color:var(--k-ink);background:var(--white);border:1px solid var(--line);border-radius:8px;padding:6px 14px;margin-top:4px}
-
-/* Varianten */
-.variants{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;padding-block:8px 32px}
-.v{background:var(--white);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s,box-shadow .15s}
-.v.picked{border-color:var(--signal);box-shadow:0 0 0 3px var(--signal)}
-.stage{height:220px;display:grid;place-items:center;padding:20px;background:var(--white);border-bottom:1px solid var(--line);overflow:hidden}
-.alt{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line)}
-.alt > div{height:110px;display:grid;place-items:center;overflow:hidden}
-.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
-.tag{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin:0}
-.v h2{margin:0;font-size:24px;line-height:1.2;letter-spacing:-.01em}
-.v p{margin:0;color:var(--muted);font-size:16px}
-.pick{margin-top:auto;font:inherit;font-weight:600;font-size:16px;min-height:50px;border-radius:10px;border:2px solid var(--ink);background:var(--white);color:var(--ink);cursor:pointer}
-.pick:hover{background:var(--paper)}
-.v.picked .pick{background:var(--signal);border-color:var(--signal);color:var(--white)}
-
-/* Logos (feste Markenfarben) */
-.plate{display:inline-flex;align-items:stretch;height:1.5em;border:.06em solid var(--k-ink);border-radius:.14em;background:var(--white);overflow:hidden;font-family:var(--fc);font-weight:700;line-height:1;color:var(--k-ink)}
-.plate .eu{width:.5em;background:var(--k-plate);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:.14em 0 .1em}
-.plate .eu i{width:.24em;height:.24em;border-radius:50%;border:.035em dotted var(--k-yellow)}
-.plate .eu span{font-family:var(--f);font-weight:600;font-size:.26em}
-.plate .tx{display:flex;align-items:center;gap:.16em;padding:0 .22em 0 .2em;letter-spacing:.03em}
-.plate .seal{display:flex;flex-direction:column;gap:.05em}
-.plate .seal i{width:.2em;height:.2em;border-radius:50%;background:#C9CED4}
-.plate .seal i:first-child{background:#E89A2B}
-.hl{background:var(--k-yellow);padding:0 .05em;margin-left:.02em}
-.sign{display:inline-flex;flex-direction:column;align-items:center;background:var(--k-blue);border-radius:.1em;padding:.16em .36em .08em;box-shadow:inset 0 0 0 .05em var(--k-blue),inset 0 0 0 .075em var(--white);font-family:var(--fc);font-weight:800;line-height:.92;color:var(--white)}
-.sign small{text-transform:uppercase;font-family:var(--f);font-weight:600;font-size:.17em;letter-spacing:.36em;padding-left:.36em;line-height:1.4}
-.sign b{letter-spacing:.03em;font-weight:800}
-.sign em{font-style:normal;color:var(--k-yellow)}
-.bub{display:inline-flex;align-items:flex-end;font-family:var(--fc);font-weight:800;line-height:.8;color:var(--k-ink)}
-.bub .b{position:relative;margin-left:.06em;margin-bottom:.3em;background:var(--k-yellow);color:var(--k-ink);border-radius:.2em;padding:.06em .18em .14em;font-family:"Caveat",cursive;font-weight:700;font-size:.72em;line-height:.8}
-.bub .b::after{content:"";position:absolute;left:.16em;bottom:-.2em;border-left:.24em solid var(--k-yellow);border-bottom:.22em solid transparent}
-.bub.on-dark{color:var(--white)}
-.sub{font-family:var(--f);font-weight:600;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#3A424A}
-.col{display:flex;flex-direction:column;align-items:center;gap:14px}
-.avatar{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 3px var(--white),0 0 0 5px var(--line);font-family:var(--fc);font-weight:800;line-height:.85;text-align:center}
-.mini-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:6px}
-.cell{display:flex;flex-direction:column;align-items:center}
-
-/* Auswahl senden */
-.send{background:var(--ink);color:var(--white);border-radius:16px;padding:clamp(22px,4vw,36px);display:flex;flex-direction:column;gap:14px;margin-block:8px 48px}
-.send h2{margin:0;font-size:clamp(24px,3.4vw,32px);line-height:1.15;letter-spacing:-.01em}
-.send p{margin:0;color:#C9D3E0;max-width:40em}
-.send .choice{font-weight:700;color:var(--white)}
-.send label{font-weight:600;font-size:15px;color:var(--white)}
-.send textarea{font:inherit;font-size:16px;min-height:96px;padding:12px 14px;border-radius:10px;border:1px solid #3A4A63;background:#1A2C49;color:var(--white);resize:vertical;width:100%;max-width:40em}
-.send textarea::placeholder{color:#8EA0B8}
-.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.btn-wa{display:inline-flex;align-items:center;gap:10px;min-height:54px;padding:0 24px;border-radius:10px;background:var(--wa);color:var(--wa-ink);font-weight:700;font-size:17px;text-decoration:none;border:none}
-.btn-wa[aria-disabled="true"]{opacity:.45;pointer-events:none}
-.btn-mail{color:var(--white);font-weight:600;min-height:44px;display:inline-flex;align-items:center}
-.hint{font-size:14px;color:#8EA0B8}
-
-/* Über STG */
-.about{border-top:1px solid var(--line);padding-block:clamp(36px,6vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 40px}
-.about h2{margin:0;font-size:clamp(26px,3.6vw,36px);line-height:1.12;letter-spacing:-.015em;text-wrap:balance}
-.about .txt{display:flex;flex-direction:column;gap:12px}
-.about .txt p{margin:0;color:var(--muted)}
-.vals{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
-.vals li{display:flex;flex-direction:column;gap:2px;padding-bottom:16px;border-bottom:1px solid var(--line)}
-.vals li:last-child{border-bottom:none;padding-bottom:0}
-.vals b{font-size:18px}
-.vals span{color:var(--muted)}
-
-footer{background:var(--white);border-top:1px solid var(--line)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;padding-block:22px;font-size:14px;color:var(--muted)}
-footer nav{display:flex;gap:18px;flex-wrap:wrap}
-footer a{color:var(--muted);min-height:44px;display:inline-flex;align-items:center}
-@media (prefers-reduced-motion:reduce){.v{transition:none}}
 </style>
 </head>
 <body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+<div style="background: #14191F; color: #FFFFFF; text-align: center; font-size: 14px; padding: 8px 16px; font-family: 'Barlow', sans-serif;">Vorschau für Markus Klich · Formulare senden noch nichts ab · Impressum und Datenschutz folgen</div>
+<div class="k-page" style="background: #F6F7F4; color: #14191F; font-family: 'Barlow', 'Helvetica Neue', Helvetica, sans-serif; font-size: 17px; line-height: 1.55;">
 
-<header class="top">
-<div class="wrap">
-<a class="brand" href="https://stg-medien.com"><b>STG Medien</b><span>Gütersloh</span></a>
-<span class="for">Vorbereitet für die Fahrschule Klich</span>
+<header style="background: #FFFFFF;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 10px 20px; min-height: 60px; box-sizing: border-box; display: flex; gap: 16px 32px; align-items: center; justify-content: space-between;">
+<a href="#top" aria-label="Fahrschule Klich, zum Seitenanfang" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #14191F;">
+<img src="/klich/logo.png" alt="" width="64" height="65" style="display: block; width: 64px; height: auto;">
+<span style="display: flex; flex-direction: column; line-height: 1.05;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px;">Fahrschule Klich</span><span style="font-size: 13px; font-weight: 500; color: #3A424A;">Gütersloh · Isselhorst · Marienfeld</span></span>
+</a>
+<nav class="k-nav" aria-label="Hauptnavigation" style="gap: 28px; font-weight: 500; font-size: 16px;">
+<a href="#nervoes" style="color: #14191F; text-decoration: none;">So lernst du bei uns</a>
+<a href="#eltern" style="color: #14191F; text-decoration: none;">Kosten &amp; Ablauf</a>
+<a href="#standorte" style="color: #14191F; text-decoration: none;">Standorte</a>
+</nav>
+<a href="{{wa}}" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 8px; background: #25D366; color: #0E2A18; text-decoration: none; font-weight: 600; font-size: 16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>WhatsApp</a>
 </div>
+<div aria-hidden="true" style="height: 4px; background: {{grad}};"></div>
 </header>
 
-<main class="wrap">
-<section class="intro">
-<p class="eyebrow">Logo-Auswahl · Fahrschule Klich</p>
-<h1>Welches Logo passt am besten zu Ihrer Fahrschule?</h1>
-<p class="lead">Alle drei Entwürfe beruhen auf einer Idee: In „Klich“ steckt „ICH“. Damit steht schon im Namen, worum es bei Ihnen geht, nämlich um den einzelnen Fahrschüler. Das passt zu dem Satz, mit dem die neue Website und die Werbung starten:</p>
-<span class="claim">Bei Klich macht’s Klick. Weil du bei uns keine Nummer bist.</span>
-<p class="lead">Schauen Sie sich die drei Varianten in Ruhe an, wählen Sie Ihren Favoriten und schicken Sie mir Ihre Wahl mit einem Fingertipp.</p>
+<main>
+<section id="top" style="max-width: 1200px; margin: 0 auto; padding: clamp(20px,4vw,56px) 20px clamp(32px,5vw,64px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: clamp(20px,4vw,48px); align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5B636B;">Fahrschule in Gütersloh-Spexard</p>
+<sc-if value="{{isClaim}}" hint-placeholder-val="{{ true }}">
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(44px, 10vw, 100px); line-height: 0.95; letter-spacing: -0.005em;">Bei Klich macht’s <span style="background: {{gradSoft}}; background-size: 100% 34%; background-position: 0 88%; background-repeat: no-repeat; padding: 0 4px;">Klick.</span></h1>
+<p style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: clamp(24px, 5.5vw, 38px); line-height: 1.1; color: {{accent}};">Weil du bei uns keine Nummer bist.</p>
+</sc-if>
+<sc-if value="{{isBF17}}" hint-placeholder-val="{{ false }}">
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(44px, 10vw, 100px); line-height: 0.95; letter-spacing: -0.005em;">Mit 17 selbst <span style="background: {{gradSoft}}; background-size: 100% 34%; background-position: 0 88%; background-repeat: no-repeat; padding: 0 4px;">am Steuer.</span></h1>
+<p style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: clamp(24px, 5.5vw, 38px); line-height: 1.1; color: {{accent}};">Anmelden kannst du dich schon mit 16 ½.</p>
+</sc-if>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 16px; color: #3A424A;">
+<li><a href="#bewertungen" style="color: #14191F; text-decoration: none;"><span aria-hidden="true" style="color: #C98A00;">★</span> <strong>4,7</strong> · 26 Google-Bewertungen</a></li>
+<li><strong style="color: #14191F;">Seit über 50 Jahren</strong> in Gütersloh</li>
+</ul>
+</div>
+
+<div id="anfrage" style="background: #FFFFFF; border: 1px solid #D5DAE0; border-radius: 16px; overflow: hidden; scroll-margin-top: 16px;">
+<div class="k-form-photo" style="position: relative; aspect-ratio: 2.8 / 1; overflow: hidden; background: #DCE2E8; display: flex; align-items: flex-end;">
+<img src="/klich/tesla.jpg" alt="Fahrlehrer der Fahrschule Klich am Tesla-Fahrschulwagen" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+<div style="position: relative; margin: 12px; padding: 8px 12px; background: #FFFFFF; border-radius: 999px; display: flex; gap: 10px; align-items: center; font-size: 14px; line-height: 1.2;">
+<span aria-hidden="true" style="flex: none; width: 10px; height: 10px; border-radius: 50%; background: #25D366;"></span>
+<span><strong>Philip oder Markus</strong> melden sich bei dir</span>
+</div>
+</div>
+<div style="height: 4px; background: #E8EBEE;"><div style="height: 4px; width: {{progress}}; background: {{grad}}; transition: width .3s ease;"></div></div>
+<div style="padding: clamp(18px,3vw,28px); display: flex; flex-direction: column; gap: 16px; min-height: 250px;">
+
+<sc-if value="{{s1}}" hint-placeholder-val="{{ true }}">
+<span style="font-size: 14px; font-weight: 600; color: #5B636B;">Frage 1 von 4 · dauert 30 Sekunden</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.05;">Für wen ist der Führerschein?</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<button type="button" onClick="{{pickSelf}}" style="{{tile}}"><span style="font-size: 20px;">Für mich</span><span style="font-size: 14px; font-weight: 400; color: #5B636B;">Ich bin der Fahrschüler</span></button>
+<button type="button" onClick="{{pickKid}}" style="{{tile}}"><span style="font-size: 20px;">Für mein Kind</span><span style="font-size: 14px; font-weight: 400; color: #5B636B;">Ich bin Elternteil</span></button>
+</div>
+</sc-if>
+
+<sc-if value="{{s2}}" hint-placeholder-val="{{ false }}">
+<span style="font-size: 14px; font-weight: 600; color: #5B636B;">Frage 2 von 4</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.05;">Welcher Führerschein?</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+<button type="button" onClick="{{pickB}}" style="{{tile}}"><span style="font-size: 20px;">Auto</span><span style="font-size: 14px; font-weight: 400; color: #5B636B;">Klasse B</span></button>
+<button type="button" onClick="{{pickBF17}}" style="{{tile}}"><span style="font-size: 20px;">Mit 17</span><span style="font-size: 14px; font-weight: 400; color: #5B636B;">BF17</span></button>
+<button type="button" onClick="{{pickMoto}}" style="{{tile}}"><span style="font-size: 20px;">Motorrad</span><span style="font-size: 14px; font-weight: 400; color: #5B636B;">AM bis A</span></button>
+<button type="button" onClick="{{pickOther}}" style="{{tile}}"><span style="font-size: 20px;">Etwas anderes</span><span style="font-size: 14px; font-weight: 400; color: #5B636B;">LKW, Anhänger …</span></button>
+</div>
+<button type="button" onClick="{{back}}" style="{{backBtn}}">← Zurück</button>
+</sc-if>
+
+<sc-if value="{{s3}}" hint-placeholder-val="{{ false }}">
+<form onSubmit="{{nextName}}" style="display: flex; flex-direction: column; gap: 14px;">
+<span style="font-size: 14px; font-weight: 600; color: #5B636B;">Frage 3 von 4</span>
+<label for="f-name" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.05;">{{nameQuestion}}</label>
+<input id="f-name" name="name" type="text" autocomplete="name" required="" value="{{name}}" onChange="{{setName}}" placeholder="Vor- und Nachname" style="font: inherit; font-size: 20px; min-height: 56px; padding: 0 16px; border: 2px solid #7A838C; border-radius: 10px;">
+<div style="display: flex; gap: 10px; align-items: center; justify-content: space-between;">
+<button type="button" onClick="{{back}}" style="{{backBtn}}">← Zurück</button>
+<button type="submit" style="min-height: 52px; padding: 0 28px; border: none; border-radius: 8px; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600; font-size: 18px; cursor: pointer;">Weiter →</button>
+</div>
+</form>
+</sc-if>
+
+<sc-if value="{{s4}}" hint-placeholder-val="{{ false }}">
+<form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 14px;">
+<span style="font-size: 14px; font-weight: 600; color: #5B636B;">Letzte Frage</span>
+<label for="f-phone" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.05;">{{phoneQuestion}}</label>
+<input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required="" value="{{phone}}" onChange="{{setPhone}}" placeholder="0170 1234567" style="font: inherit; font-size: 20px; min-height: 56px; padding: 0 16px; border: 2px solid #7A838C; border-radius: 10px;">
+<span style="font-size: 14px; color: #3A424A;">Wir schreiben dir per WhatsApp oder rufen kurz an, meist innerhalb von 24 Stunden.</span>
+<div style="display: flex; gap: 10px; align-items: center; justify-content: space-between;">
+<button type="button" onClick="{{back}}" style="{{backBtn}}">← Zurück</button>
+<button type="submit" style="min-height: 52px; padding: 0 24px; border: none; border-radius: 8px; background: {{accent}}; color: #FFFFFF; font: inherit; font-weight: 600; font-size: 18px; cursor: pointer;">Unverbindlich anfragen</button>
+</div>
+<p style="margin: 0; font-size: 13px; color: #3A424A;">Deine Angaben nutzen wir nur, um uns bei dir zu melden. Mehr in der <a href="#">Datenschutzerklärung</a>.</p>
+</form>
+</sc-if>
+
+<sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" style="display: flex; flex-direction: column; gap: 12px;">
+<span aria-hidden="true" style="width: 52px; height: 52px; border-radius: 50%; background: #E3F5EA; color: #1E7F4C; display: grid; place-items: center; font-size: 28px; font-weight: 700;">✓</span>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.05;">Danke, {{firstName}}!</h2>
+<p style="margin: 0; color: #3A424A;">Wir melden uns meist innerhalb von 24 Stunden. Schneller geht es, wenn du direkt schreibst:</p>
+<a href="{{wa}}" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border-radius: 8px; background: #25D366; color: #0E2A18; text-decoration: none; font-weight: 600;">WhatsApp öffnen</a>
+<button type="button" onClick="{{restart}}" style="{{backBtn}}">Neue Anfrage starten</button>
+</div>
+</sc-if>
+
+<sc-if value="{{showWa}}" hint-placeholder-val="{{ true }}">
+<a href="{{wa}}" style="margin-top: auto; align-self: center; font-size: 15px; font-weight: 600; color: #14191F; min-height: 44px; display: inline-flex; align-items: center; gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E7F4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Lieber direkt per WhatsApp schreiben</a>
+</sc-if>
+</div>
+</div>
 </section>
 
-<section class="variants" aria-label="Logo-Varianten">
-
-<article class="v" id="v-A">
-<div class="stage"><div class="col"><span class="plate" style="font-size:54px"><span class="eu"><i></i><span>D</span></span><span class="tx">GT<span class="seal"><i></i><i></i></span><span>KL<span class="hl">ICH</span></span></span></span><span class="sub">Fahrschule</span></div></div>
-<div class="alt">
-<div style="background:var(--k-blue)"><div class="cell"><span class="plate" style="font-size:24px"><span class="eu"><i></i><span>D</span></span><span class="tx">GT<span class="seal"><i></i><i></i></span><span>KL<span class="hl">ICH</span></span></span></span></div></div>
-<div><div class="cell"><span class="avatar" style="background:var(--k-yellow);color:var(--k-ink);font-size:30px">KL<br>ICH</span><span class="mini-label">Instagram</span></div></div>
+<section id="bewertungen" aria-labelledby="h-bew" style="background: #FFFFFF; border-block: 1px solid #E2E4E0;">
+<div class="k-sec" style="max-width: 1200px; margin: 0 auto; padding-inline: 20px; display: flex; flex-direction: column; gap: 20px;">
+<h2 id="h-bew" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(32px, 5vw, 48px); line-height: 1.05;">Das sagen unsere Fahrschüler</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; align-items: start;">
+<figure style="margin: 0; border: 1px solid #E2E4E0; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+<span aria-label="5 von 5 Sternen" style="color: #C98A00; letter-spacing: 2px;">★★★★★</span>
+<blockquote style="margin: 0; font-size: 17px;">„Am Donnerstag habe ich meine praktische Fahrprüfung endlich bestanden! Dank Philip wurde ich super vorbereitet und die Fahrstunden waren nicht nur informativ, sondern haben mir auch immer Spaß gemacht. Einerseits ist es ein tolles Gefühl nie wieder zur Fahrschule zu müssen aber andererseits werden mir die Fahrstunden mit Philip fehlen. Führerschein lernen muss nicht trocken sein – bei Klich wird gelacht, gelernt und gefahren!“</blockquote>
+<figcaption style="font-size: 14px; color: #5B636B;">Jana K., Google-Bewertung</figcaption>
+</figure>
+<figure style="margin: 0; border: 1px solid #E2E4E0; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+<span aria-label="5 von 5 Sternen" style="color: #C98A00; letter-spacing: 2px;">★★★★★</span>
+<blockquote style="margin: 0; font-size: 17px;">„Die Fahrschule ist echt top!! Die Lehrer sind total nett und erklären alles super verständlich. Würde ich jedem weiterempfehlen! Phillip du bist ein super Fahrlehrer, danke für deine Geduld und Motivation!“</blockquote>
+<figcaption style="font-size: 14px; color: #5B636B;">Angelina B., Google-Bewertung</figcaption>
+</figure>
+<figure style="margin: 0; border: 1px solid #E2E4E0; border-radius: 12px; padding: 22px; display: flex; flex-direction: column; gap: 10px;">
+<span aria-label="5 von 5 Sternen" style="color: #C98A00; letter-spacing: 2px;">★★★★★</span>
+<blockquote style="margin: 0; font-size: 17px;">„Ich bin unglaublich zufrieden mit meiner Erfahrung bei Fahrschule Klich! Die Fahrlehrer sind extrem professionell, geduldig und erklären alles verständlich, egal ob in der Theorie oder während der Fahrstunden. Sie gehen auf die individuellen Bedürfnisse ein und sorgen dafür, dass man sich sicher und gut vorbereitet fühlt – nicht nur für die Prüfung, sondern auch für das Fahren im Alltag. Die Organisation war top, und ich habe mich immer gut betreut gefühlt. Die Fahrschule ist daher sehr empfehlenswert!“</blockquote>
+<figcaption style="font-size: 14px; color: #5B636B;">Jonas H., Google-Bewertung</figcaption>
+</figure>
 </div>
-<div class="body">
-<p class="tag">Variante A</p>
-<h2>Das Kennzeichen</h2>
-<p>Das Gütersloher Nummernschild kennt jeder. GT steht für die Heimat, das gelbe ICH für den Schüler. Passt aufs Auto, auf Instagram und auf Aufkleber und ist in der Region unverwechselbar.</p>
-<button class="pick" type="button" data-v="A" aria-pressed="false">Variante A wählen</button>
+<a href="https://www.google.com/maps/search/Fahrschule+Klich+Bruder-Konrad-Stra%C3%9Fe+59+G%C3%BCtersloh" style="align-self: flex-start; font-weight: 600; min-height: 44px; display: inline-flex; align-items: center;">Alle 26 Bewertungen auf Google ansehen</a>
 </div>
-</article>
-
-<article class="v" id="v-B">
-<div class="stage"><span class="sign" style="font-size:86px"><small>Fahrschule</small><b>KL<em>ICH</em></b></span></div>
-<div class="alt">
-<div style="background:var(--k-ink)"><span class="sign" style="font-size:36px"><small>Fahrschule</small><b>KL<em>ICH</em></b></span></div>
-<div><div class="cell"><span class="avatar" style="background:var(--k-blue);color:var(--white);font-size:30px">KL<br><span style="color:var(--k-yellow)">ICH</span></span><span class="mini-label">Instagram</span></div></div>
-</div>
-<div class="body">
-<p class="tag">Variante B</p>
-<h2>Das Dachschild</h2>
-<p>Das blaue Schild vom Fahrschulauto, mit Ihrem Namen darin. Man sieht sofort, dass es um den Führerschein geht. Wirkt ruhig und seriös und ist auch von Weitem gut zu lesen.</p>
-<button class="pick" type="button" data-v="B" aria-pressed="false">Variante B wählen</button>
-</div>
-</article>
-
-<article class="v" id="v-C">
-<div class="stage"><div class="col"><span class="bub" style="font-size:118px">KL<span class="b">ich</span></span><span class="sub">Fahrschule</span></div></div>
-<div class="alt">
-<div style="background:var(--k-blue)"><span class="bub on-dark" style="font-size:54px">KL<span class="b">ich</span></span></div>
-<div><div class="cell"><span class="avatar" style="background:var(--k-yellow);color:var(--k-ink);font-size:34px">KL<span style="font-family:'Caveat',cursive;font-size:.85em">ich</span></span><span class="mini-label">Instagram</span></div></div>
-</div>
-<div class="body">
-<p class="tag">Variante C</p>
-<h2>Die Sprechblase</h2>
-<p>„KL“ in kräftiger Schrift, dazu ein handgeschriebenes „ich“ in einer Chatblase. Wirkt persönlich und nahbar, wie eine kurze Nachricht an die Fahrschule. Spricht vor allem junge Fahrschüler an.</p>
-<button class="pick" type="button" data-v="C" aria-pressed="false">Variante C wählen</button>
-</div>
-</article>
-
 </section>
 
-<section class="send" aria-labelledby="h-send">
-<h2 id="h-send">Ihre Wahl: <span class="choice" id="choice">noch keine Variante gewählt</span></h2>
-<p>Möchten Sie noch etwas ändern, zum Beispiel eine Farbe oder die Schrift? Dann schreiben Sie es einfach dazu. Nach Ihrer Wahl arbeite ich das Logo fein aus und baue es in Website, Profile und Fahrzeugbeschriftung ein.</p>
-<label for="note">Anmerkung (freiwillig)</label>
-<textarea id="note" placeholder="Zum Beispiel: Variante A, aber das Gelb etwas kräftiger"></textarea>
-<div class="row">
-<a class="btn-wa" id="send-wa" href="https://wa.me/4915906828151" aria-disabled="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Wahl per WhatsApp senden</a>
-<a class="btn-mail" id="send-mail" href="mailto:jonathan@stg-medien.com?subject=Logo-Auswahl%20Fahrschule%20Klich">oder per E-Mail</a>
+<section id="nervoes" aria-labelledby="h-nerv">
+<div class="k-sec" style="max-width: 1200px; margin: 0 auto; padding-inline: 20px; display: flex; flex-direction: column; gap: 28px;">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 720px;">
+<h2 id="h-nerv" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(40px, 7vw, 64px); line-height: 1;">Nervös? Völlig normal.</h2>
+<p style="margin: 0; font-size: 19px; color: #3A424A;">So nehmen wir dir die Angst, bevor es auf die Straße geht.</p>
 </div>
-<span class="hint" id="hint">Bitte wählen Sie zuerst oben eine Variante.</span>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px;">
+<div style="background: #FFFFFF; border: 1px solid #E2E4E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"></rect><path d="M8 21h8M12 17v4"></path></svg>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.2; font-weight: 600;">Erst im Simulator üben</h3>
+<p style="margin: 0; color: #3A424A;">Anfahren, Lenken, Bremsen: Im Fahrsimulator probierst du alles in Ruhe aus, ohne echten Verkehr.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E4E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.2; font-weight: 600;">Ein Fahrlehrer, der deinen Stand kennt</h3>
+<p style="margin: 0; color: #3A424A;">Du fängst nicht jede Stunde von vorn an. Wir wissen, was du schon kannst und woran ihr noch arbeitet.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E4E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"></path></svg>
+<h3 style="margin: 0; font-size: 22px; line-height: 1.2; font-weight: 600;">Lernen im Tesla</h3>
+<p style="margin: 0; color: #3A424A;">Ohne Kupplung kannst du dich ganz auf den Verkehr konzentrieren. [Mit B197 darfst du danach trotzdem Schaltwagen fahren.]</p>
+</div>
+</div>
+<a href="{{wa}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px; border-radius: 8px; border: 2px solid #14191F; color: #14191F; text-decoration: none; font-weight: 600;">Fragen? Schreib uns auf WhatsApp</a>
+</div>
+</section>
+
+<section aria-labelledby="h-bf17" style="background: #14191F; color: #FFFFFF;">
+<div class="k-sec" style="max-width: 1200px; margin: 0 auto; padding-inline: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 16px;">
+<h2 id="h-bf17" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(48px, 9vw, 92px); line-height: 0.95;">Nie wieder <span style="background: {{grad}}; -webkit-background-clip: text; background-clip: text; color: transparent;">Mama-Taxi.</span></h2>
+<p style="margin: 0; font-size: 19px; color: #C9D0D6; max-width: 32em;">Mit BF17 fährst du ein Jahr früher selbst. Mama oder Papa sitzen dann als Beifahrer daneben, statt dich zu fahren. Ab 18 fährst du allein. Anmelden kannst du dich mit 16 ½.</p>
+<a href="#anfrage" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 54px; padding: 0 26px; border-radius: 8px; background: {{grad}}; color: #0E1A12; text-decoration: none; font-weight: 600; font-size: 18px;">Ich will mit 17 fahren</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+<img src="/klich/b-tesla.jpg" alt="Fahrschülerin mit bestandener Prüfung vor dem Tesla der Fahrschule Klich" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px;">
+<img src="/klich/b-skoda.jpg" alt="Fahrschüler mit bestandener Prüfung vor einem Fahrschulwagen der Fahrschule Klich" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px;">
+<img src="/klich/b-motorrad.jpg" alt="Frisch bestandener Motorradführerschein auf dem Fahrschulmotorrad" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px;">
+<img src="/klich/b-traktor.jpg" alt="Bestandener Traktorführerschein mit Fahrlehrer vor dem Traktor" style="display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px;">
+</div>
+</div>
+</section>
+
+<section id="eltern" aria-labelledby="h-eltern">
+<div class="k-sec" style="max-width: 1200px; margin: 0 auto; padding-inline: 20px; display: flex; flex-direction: column; gap: 32px;">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 760px;">
+<p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5B636B;">Für Eltern</p>
+<h2 id="h-eltern" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 56px); line-height: 1.02;">Was der Führerschein kostet und wie er abläuft</h2>
+<p style="margin: 0; font-size: 18px; color: #3A424A;">Wir nennen Ihnen die Preise vorab und schätzen die Zahl der Fahrstunden ehrlich ein. Fragen klären Sie bequem per WhatsApp, auch abends.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 24px; align-items: start;">
+<div id="preisrechner" style="grid-column: 1 / -1; background: #FFFFFF; border: 1px solid #E2E4E0; border-radius: 12px; overflow: hidden; font-variant-numeric: tabular-nums; scroll-margin-top: 16px;">
+<div aria-hidden="true" style="height: 4px; background: #E8EBEE;"><div style="height: 4px; width: {{rcPct}}; background: {{grad}}; transition: width .3s ease;"></div></div>
+<button type="button" onClick="{{toggleRc}}" aria-expanded="{{rcOpenStr}}" aria-controls="preisrechner-body" style="width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 24px; background: #FFFFFF; border: none; text-align: left; font: inherit; color: #14191F; cursor: pointer; min-height: 72px;">
+<span style="display: flex; flex-direction: column; gap: 2px; min-width: 0;"><span style="font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B636B;">Preisrechner</span><span style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px;"><span style="font-size: 17px; font-weight: 600;">{{rcAvgLabel}}</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 36px; line-height: 1;">ca. {{totalFmt}}</span></span><span style="font-size: 14px; color: #3A424A;">{{rcTeaser}}</span></span>
+<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; border: 2px solid #D5DAE0; display: grid; place-items: center; font-size: 18px; line-height: 1;">{{rcChevron}}</span>
+</button>
+<sc-if value="{{rcOpen}}" hint-placeholder-val="{{ false }}">
+<div id="preisrechner-body" style="padding: 0 24px 24px; display: flex; flex-direction: column; gap: 16px; border-top: 1px solid #E2E4E0; padding-top: 18px;">
+<span style="font-size: 14px; font-weight: 600; color: #5B636B;">Schritt {{rcStep}} von 3</span>
+
+<sc-if value="{{rc1}}" hint-placeholder-val="{{ true }}">
+<fieldset style="border: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+<legend style="padding: 0; margin-bottom: 10px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.05;">Welcher Führerschein?</legend>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 128px), 1fr)); gap: 8px;">
+<sc-for list="{{classes}}" as="item" hint-placeholder-count="7">
+<button type="button" onClick="{{item.pick}}" aria-pressed="{{item.pressed}}" style="{{item.style}}"><span style="font-size: 16px;">{{item.label}}</span><span style="font-size: 13px; font-weight: 400; color: #5B636B;">{{item.sub}}</span></button>
+</sc-for>
+</div>
+</fieldset>
+</sc-if>
+
+<sc-if value="{{rc2}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<label for="f-hours" style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px; line-height: 1.05;">Wie viele Fahrstunden?</span><span style="font-size: 24px; font-weight: 700;">{{hours}}</span></label>
+<input id="f-hours" type="range" min="{{hMin}}" max="{{hMax}}" step="1" value="{{hours}}" onChange="{{setHours}}" style="width: 100%; min-height: 44px; accent-color: #0072B5;">
+<span style="font-size: 14px; color: #5B636B;">Übungsstunden à 45 Min. für {{rcLabel}}. Wie viele Sie brauchen, ist sehr unterschiedlich. Nach den ersten Fahrstunden schätzen wir es ehrlich für Sie ein.</span>
+<div style="display: flex; flex-direction: column;">
+<sc-if value="{{hasOwn}}" hint-placeholder-val="{{ false }}">
+<label for="f-own" style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px;"><input id="f-own" type="checkbox" checked="{{own}}" onChange="{{toggleOwn}}" style="width: 20px; height: 20px; accent-color: #0072B5;">Ich fahre mit eigenem Motorrad</label>
+</sc-if>
+<sc-if value="{{hasBasics}}" hint-placeholder-val="{{ true }}">
+<label for="f-basics" style="display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px;"><input id="f-basics" type="checkbox" checked="{{haveBasics}}" onChange="{{toggleBasics}}" style="width: 20px; height: 20px; accent-color: #0072B5;">Sehtest und Erste-Hilfe-Kurs habe ich schon</label>
+</sc-if>
+</div>
+<div style="display: flex; gap: 10px; align-items: center; justify-content: space-between;">
+<button type="button" onClick="{{rcBack}}" style="align-self: flex-start; background: none; border: none; padding: 8px 0; min-height: 44px; color: #3A424A; font: inherit; font-weight: 500; cursor: pointer;">← Zurück</button>
+<button type="button" onClick="{{rcCalc}}" style="min-height: 48px; padding: 0 20px; border-radius: 8px; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer; border: none; background: #0072B5; color: #FFFFFF;">Preis berechnen →</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{rc3}}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" style="display: flex; flex-direction: column; gap: 12px;">
+<span style="font-size: 15px; color: #3A424A;">{{rcLabel}} mit {{hours}} Übungsstunden, ca.</span>
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 56px; line-height: 1;">{{totalFmt}}</span>
+<p style="margin: 0; font-size: 14px; color: #3A424A;">Davon Fahrschule {{schoolFmt}}, Gebühren für TÜV und Führerscheinstelle {{feesFmt}}.</p>
+</div>
+<button type="button" onClick="{{toggleDetails}}" aria-expanded="{{rcDetailsStr}}" style="align-self: flex-start; background: none; border: none; padding: 8px 0; min-height: 44px; color: #3A424A; font: inherit; font-weight: 500; cursor: pointer; color: #0072B5; font-weight: 600; text-decoration: underline;">{{rcDetailsLabel}}</button>
+<sc-if value="{{rcDetails}}" hint-placeholder-val="{{ false }}">
+<dl style="margin: 0;">
+<sc-for list="{{rows}}" as="row" hint-placeholder-count="8">
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid #E2E4E0; font-size: 15px;"><dt style="display: flex; flex-direction: column;"><span>{{row.label}}</span><span style="font-size: 13px; color: #5B636B;">{{row.note}}</span></dt><dd style="margin: 0; font-weight: 600; white-space: nowrap;">{{row.amount}}</dd></div>
+</sc-for>
+</dl>
+</sc-if>
+<sc-if value="{{rcNotSent}}" hint-placeholder-val="{{ true }}">
+<form onSubmit="{{rcSubmit}}" style="display: flex; flex-direction: column; gap: 12px; background: #F3F8FB; border-radius: 10px; padding: 18px;">
+<span style="font-size: 18px; font-weight: 600;">Preisübersicht per E-Mail erhalten</span>
+<span style="font-size: 14px; color: #3A424A; margin-top: -6px;">Wir schicken Ihnen Ihre Berechnung mit allen Posten und melden uns für einen Beratungstermin.</span>
+<label for="f-rc-name" style="display: flex; flex-direction: column; gap: 4px; font-size: 15px; font-weight: 600;">Name<input id="f-rc-name" name="name" type="text" autocomplete="name" required value="{{rcName}}" onChange="{{setRcName}}" placeholder="Vor- und Nachname" style="font: inherit; font-size: 18px; min-height: 52px; padding: 0 14px; border: 2px solid #7A838C; border-radius: 10px; font-weight: 400;"></label>
+<label for="f-rc-email" style="display: flex; flex-direction: column; gap: 4px; font-size: 15px; font-weight: 600;">E-Mail<input id="f-rc-email" name="email" type="email" inputmode="email" autocomplete="email" required value="{{rcEmail}}" onChange="{{setRcEmail}}" placeholder="name@beispiel.de" style="font: inherit; font-size: 18px; min-height: 52px; padding: 0 14px; border: 2px solid #7A838C; border-radius: 10px; font-weight: 400;"></label>
+<label for="f-rc-consent" style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #3A424A; line-height: 1.4;"><input id="f-rc-consent" name="consent" type="checkbox" required checked="{{rcConsent}}" onChange="{{toggleRcConsent}}" style="flex: none; width: 20px; height: 20px; margin-top: 1px; accent-color: #0072B5;"><span>Ja, die Fahrschule Klich darf mir meine Preisübersicht schicken und mich dazu per E-Mail kontaktieren. Abmelden geht jederzeit. Mehr in der <a href="#">Datenschutzerklärung</a>.</span></label>
+<button type="submit" style="align-self: flex-start; min-height: 52px; padding: 0 24px; border: none; border-radius: 8px; background: #0072B5; color: #FFFFFF; font: inherit; font-weight: 600; font-size: 17px; cursor: pointer;">Preisübersicht anfordern</button>
+</form>
+</sc-if>
+<sc-if value="{{rcSent}}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" style="display: flex; gap: 12px; align-items: flex-start; background: #EAF6EC; border-radius: 10px; padding: 16px 18px;">
+<span aria-hidden="true" style="flex: none; width: 36px; height: 36px; border-radius: 50%; background: #2F7D32; color: #FFFFFF; display: grid; place-items: center; font-weight: 700;">✓</span>
+<span style="display: flex; flex-direction: column; gap: 2px;"><strong>Danke, {{rcFirstName}}.</strong><span style="font-size: 15px; color: #3A424A;">Bitte bestätigen Sie kurz den Link in der E-Mail, die wir Ihnen gerade geschickt haben. Danach erhalten Sie Ihre Preisübersicht.</span></span>
+</div>
+</sc-if>
+<a href="{{waPrice}}" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 15px; font-weight: 600; color: #14191F;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E7F4C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>Lieber direkt per WhatsApp fragen</a>
+<div style="display: flex; gap: 16px; flex-wrap: wrap;">
+<button type="button" onClick="{{rcBack}}" style="align-self: flex-start; background: none; border: none; padding: 8px 0; min-height: 44px; color: #3A424A; font: inherit; font-weight: 500; cursor: pointer;">← Stunden ändern</button>
+<button type="button" onClick="{{rcRestart}}" style="align-self: flex-start; background: none; border: none; padding: 8px 0; min-height: 44px; color: #3A424A; font: inherit; font-weight: 500; cursor: pointer;">Andere Klasse</button>
+</div>
+<p style="margin: 0; font-size: 13px; color: #5B636B;">Grundlage ist die aktuelle Gebührenordnung der Fahrschule Markus Klich. Nicht enthalten sind Passbild und eventuelle Wiederholungsprüfungen. Alle Angaben ohne Gewähr.</p>
+</sc-if>
+</div>
+</sc-if>
+</div>
+<div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 14px;">
+<h3 style="margin: 0; font-size: 20px; font-weight: 600;">So läuft es ab</h3>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px 24px;">
+<li style="display: flex; gap: 14px; align-items: baseline;"><span style="flex: none; width: 30px; height: 30px; border-radius: 6px; background: {{gradDeep}}; color: #FFFFFF; display: inline-grid; place-items: center; font-weight: 600;">1</span><span><strong>Anfragen und Beratung</strong>, per WhatsApp, Formular oder vor Ort</span></li>
+<li style="display: flex; gap: 14px; align-items: baseline;"><span style="flex: none; width: 30px; height: 30px; border-radius: 6px; background: {{gradDeep}}; color: #FFFFFF; display: inline-grid; place-items: center; font-weight: 600;">2</span><span><strong>Sehtest und Erste-Hilfe-Kurs</strong>, [bei uns im Haus]</span></li>
+<li style="display: flex; gap: 14px; align-items: baseline;"><span style="flex: none; width: 30px; height: 30px; border-radius: 6px; background: {{gradDeep}}; color: #FFFFFF; display: inline-grid; place-items: center; font-weight: 600;">3</span><span><strong>Antrag beim Kreis Gütersloh</strong>, wir sagen Ihnen genau, was Sie brauchen</span></li>
+<li style="display: flex; gap: 14px; align-items: baseline;"><span style="flex: none; width: 30px; height: 30px; border-radius: 6px; background: {{gradDeep}}; color: #FFFFFF; display: inline-grid; place-items: center; font-weight: 600;">4</span><span><strong>Theorieunterricht und Theorieprüfung</strong></span></li>
+<li style="display: flex; gap: 14px; align-items: baseline;"><span style="flex: none; width: 30px; height: 30px; border-radius: 6px; background: {{gradDeep}}; color: #FFFFFF; display: inline-grid; place-items: center; font-weight: 600;">5</span><span><strong>Fahrstunden und Sonderfahrten</strong>, erste Fahrstunde meist nach [X Wochen]</span></li>
+<li style="display: flex; gap: 14px; align-items: baseline;"><span style="flex: none; width: 30px; height: 30px; border-radius: 6px; background: {{gradDeep}}; color: #FFFFFF; display: inline-grid; place-items: center; font-weight: 600;">6</span><span><strong>Praktische Prüfung</strong>, bei BF17 frühestens mit 17</span></li>
+</ol>
+<a href="#anfrage" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 52px; padding: 0 22px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 600;">Für mein Kind anfragen</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="kontakt" aria-labelledby="h-kontakt" style="background: {{gradDeep}}; color: #FFFFFF;">
+<div class="k-sec" style="max-width: 1200px; margin: 0 auto; padding-inline: 20px; display: flex; flex-direction: column; gap: 18px;">
+<h2 id="h-kontakt" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(42px, 7vw, 76px); line-height: 0.98; max-width: 14em;">Nur eine WhatsApp bis zu deinem Führerschein.</h2>
+<p style="margin: 0; font-size: 19px; max-width: 30em;">Schreib uns einfach. Wir melden uns meist innerhalb von 24 Stunden. Unverbindlich.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+<a href="{{wa}}" style="display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 24px; border-radius: 8px; background: #25D366; color: #0E2A18; text-decoration: none; font-weight: 600; font-size: 18px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>WhatsApp schreiben</a>
+<a href="#anfrage" style="display: inline-flex; align-items: center; min-height: 54px; padding: 0 24px; border-radius: 8px; background: #FFFFFF; color: #14191F; text-decoration: none; font-weight: 600; font-size: 18px;">Zum Anfrageformular</a>
+</div>
+<a href="tel:+491725383804" style="color: #FFFFFF; font-size: 16px; min-height: 44px; display: inline-flex; align-items: center; align-self: flex-start;">Lieber anrufen: 0172 5383804</a>
+</div>
+</section>
+
+<section id="standorte" aria-labelledby="h-orte">
+<div class="k-sec" style="max-width: 1200px; margin: 0 auto; padding-inline: 20px; display: flex; flex-direction: column; gap: 24px;">
+<h2 id="h-orte" style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 6vw, 56px); line-height: 1.02;">Unsere Standorte</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px;">
+<div style="background: #FFFFFF; border: 2px solid {{accent}}; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 6px;">
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px;">Spexard</h3>
+<address style="font-style: normal;">Bruder-Konrad-Straße 59<br>33334 Gütersloh</address>
+<span style="font-size: 15px; color: #3A424A;">Theorie: Di + Do, 18:30–20:00 Uhr</span>
+<span style="font-size: 15px; color: #3A424A;">Bis Ende 2024 Fahrschule Gerling, jetzt Fahrschule Klich.</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E4E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 6px;">
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px;">Isselhorst</h3>
+<address style="font-style: normal;">Haverkamp 10<br>33334 Gütersloh</address>
+<span style="font-size: 15px; color: #3A424A;">Theorie: Mo + Do, 18:30–20:00 Uhr</span>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #E2E4E0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 6px;">
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 30px;">Marienfeld</h3>
+<address style="font-style: normal;">Schwarzer Diek 12<br>33428 Harsewinkel-Marienfeld</address>
+<span style="font-size: 15px; color: #3A424A;">Theorie: [Zeiten]</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 16px; color: #3A424A;"><strong style="color: #14191F;">Außerdem bei uns:</strong> Roller und Motorrad (AM bis A), Automatik (B197), Anhänger (BE, B96), LKW (C1 bis CE), Bus (D1 bis DE), Traktor (L, T) sowie Aufbauseminare für Fahranfänger.</p>
+</div>
 </section>
 </main>
 
-<section class="wrap about" aria-labelledby="h-about">
-<div class="txt">
-<p class="eyebrow">Über STG Medien</p>
-<h2 id="h-about">Sichtbar werden in Gütersloh und Umgebung.</h2>
-<p>STG Medien ist eine Agentur aus Gütersloh. Wir sorgen dafür, dass Unternehmen aus der Region online gefunden werden und Anfragen bekommen: mit Website, Markenauftritt, Fotos und Videos sowie Werbung auf Instagram und Facebook.</p>
-<p>Für die Fahrschule Klich heißt das: ein klarer Auftritt, eine Website, über die Anmeldungen ankommen, und Werbung, deren Ergebnis wir jeden Monat offenlegen.</p>
-</div>
-<ul class="vals">
-<li><b>Aus einer Hand</b><span>Ein Ansprechpartner für Logo, Website, Inhalte und Werbung.</span></li>
-<li><b>Schnell</b><span>Kurze Wege, klare Termine und Ergebnisse in Tagen statt Monaten.</span></li>
-<li><b>Persönlich</b><span>Der Gründer betreut Ihr Projekt selbst und ist direkt erreichbar.</span></li>
-</ul>
-</section>
-
-<footer>
-<div class="wrap">
-<span>STG Medien · Jonathan Kreutzheide · Gütersloh · <a href="mailto:jonathan@stg-medien.com" style="display:inline;min-height:0">jonathan@stg-medien.com</a></span>
-<nav aria-label="Rechtliches"><a href="https://stg-medien.com">stg-medien.com</a><a href="https://stg-medien.com/impressum">Impressum</a><a href="https://stg-medien.com/datenschutz">Datenschutz</a></nav>
+<footer style="background: #14191F; color: #C9D0D6;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 32px 20px; display: flex; flex-wrap: wrap; gap: 12px 40px; justify-content: space-between; align-items: center; font-size: 15px;">
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px;"><span aria-hidden="true" style="display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: #FFFFFF;"><img src="/klich/logo.png" alt="" width="54" height="55" style="display: block; width: 54px; height: auto;"></span><span><strong style="color: #FFFFFF;">Fahrschule Klich</strong> · Inh. Markus Klich-Beckmann · Familienbetrieb in 2. Generation</span></span>
+<span style="display: flex; gap: 8px 24px; flex-wrap: wrap;"><a href="#" style="color: #C9D0D6; min-height: 44px; display: inline-flex; align-items: center;">Impressum</a><a href="#" style="color: #C9D0D6; min-height: 44px; display: inline-flex; align-items: center;">Datenschutz</a><a href="tel:+491725383804" style="color: #C9D0D6; min-height: 44px; display: inline-flex; align-items: center;">0172 5383804</a></span>
 </div>
 </footer>
 
-<script>
-(function(){
-  var picked = "";
-  var names = {A:"Variante A, das Kennzeichen", B:"Variante B, das Dachschild", C:"Variante C, die Sprechblase"};
-  var wa = document.getElementById("send-wa"), mail = document.getElementById("send-mail");
-  var note = document.getElementById("note"), choice = document.getElementById("choice"), hint = document.getElementById("hint");
-  function msg(){
-    var t = "Hallo Jonathan, für die Fahrschule Klich nehme ich " + names[picked] + ".";
-    if (note.value.trim()) t += "\n\nAnmerkung: " + note.value.trim();
-    return t;
+<div class="k-sticky" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px)); background: #FFFFFF; border-top: 1px solid #E2E4E0;">
+<a href="#anfrage" style="display: inline-flex; justify-content: center; align-items: center; min-height: 48px; border-radius: 8px; background: {{accent}}; color: #FFFFFF; text-decoration: none; font-weight: 600;">Anfragen</a>
+<a href="{{wa}}" style="display: inline-flex; justify-content: center; align-items: center; min-height: 48px; border-radius: 8px; background: #25D366; color: #0E2A18; text-decoration: none; font-weight: 600;">WhatsApp</a>
+</div>
+
+</div>
+</script>
+<script>(function(global,factory){typeof exports==="object"&&typeof module!=="undefined"?module.exports=factory():typeof define==="function"&&define.amd?define(factory):(global=global||self,global.morphdom=factory())})(this,function(){"use strict";var DOCUMENT_FRAGMENT_NODE=11;function morphAttrs(fromNode,toNode){var toNodeAttrs=toNode.attributes;var attr;var attrName;var attrNamespaceURI;var attrValue;var fromValue;if(toNode.nodeType===DOCUMENT_FRAGMENT_NODE||fromNode.nodeType===DOCUMENT_FRAGMENT_NODE){return}for(var i=toNodeAttrs.length-1;i>=0;i--){attr=toNodeAttrs[i];attrName=attr.name;attrNamespaceURI=attr.namespaceURI;attrValue=attr.value;if(attrNamespaceURI){attrName=attr.localName||attrName;fromValue=fromNode.getAttributeNS(attrNamespaceURI,attrName);if(fromValue!==attrValue){if(attr.prefix==="xmlns"){attrName=attr.name}fromNode.setAttributeNS(attrNamespaceURI,attrName,attrValue)}}else{fromValue=fromNode.getAttribute(attrName);if(fromValue!==attrValue){fromNode.setAttribute(attrName,attrValue)}}}var fromNodeAttrs=fromNode.attributes;for(var d=fromNodeAttrs.length-1;d>=0;d--){attr=fromNodeAttrs[d];attrName=attr.name;attrNamespaceURI=attr.namespaceURI;if(attrNamespaceURI){attrName=attr.localName||attrName;if(!toNode.hasAttributeNS(attrNamespaceURI,attrName)){fromNode.removeAttributeNS(attrNamespaceURI,attrName)}}else{if(!toNode.hasAttribute(attrName)){fromNode.removeAttribute(attrName)}}}}var range;var NS_XHTML="http://www.w3.org/1999/xhtml";var doc=typeof document==="undefined"?undefined:document;var HAS_TEMPLATE_SUPPORT=!!doc&&"content"in doc.createElement("template");var HAS_RANGE_SUPPORT=!!doc&&doc.createRange&&"createContextualFragment"in doc.createRange();function createFragmentFromTemplate(str){var template=doc.createElement("template");template.innerHTML=str;return template.content.childNodes[0]}function createFragmentFromRange(str){if(!range){range=doc.createRange();range.selectNode(doc.body)}var fragment=range.createContextualFragment(str);return fragment.childNodes[0]}function createFragmentFromWrap(str){var fragment=doc.createElement("body");fragment.innerHTML=str;return fragment.childNodes[0]}function toElement(str){str=str.trim();if(HAS_TEMPLATE_SUPPORT){return createFragmentFromTemplate(str)}else if(HAS_RANGE_SUPPORT){return createFragmentFromRange(str)}return createFragmentFromWrap(str)}function compareNodeNames(fromEl,toEl){var fromNodeName=fromEl.nodeName;var toNodeName=toEl.nodeName;var fromCodeStart,toCodeStart;if(fromNodeName===toNodeName){return true}fromCodeStart=fromNodeName.charCodeAt(0);toCodeStart=toNodeName.charCodeAt(0);if(fromCodeStart<=90&&toCodeStart>=97){return fromNodeName===toNodeName.toUpperCase()}else if(toCodeStart<=90&&fromCodeStart>=97){return toNodeName===fromNodeName.toUpperCase()}else{return false}}function createElementNS(name,namespaceURI){return!namespaceURI||namespaceURI===NS_XHTML?doc.createElement(name):doc.createElementNS(namespaceURI,name)}function moveChildren(fromEl,toEl){var curChild=fromEl.firstChild;while(curChild){var nextChild=curChild.nextSibling;toEl.appendChild(curChild);curChild=nextChild}return toEl}function syncBooleanAttrProp(fromEl,toEl,name){if(fromEl[name]!==toEl[name]){fromEl[name]=toEl[name];if(fromEl[name]){fromEl.setAttribute(name,"")}else{fromEl.removeAttribute(name)}}}var specialElHandlers={OPTION:function(fromEl,toEl){var parentNode=fromEl.parentNode;if(parentNode){var parentName=parentNode.nodeName.toUpperCase();if(parentName==="OPTGROUP"){parentNode=parentNode.parentNode;parentName=parentNode&&parentNode.nodeName.toUpperCase()}if(parentName==="SELECT"&&!parentNode.hasAttribute("multiple")){if(fromEl.hasAttribute("selected")&&!toEl.selected){fromEl.setAttribute("selected","selected");fromEl.removeAttribute("selected")}parentNode.selectedIndex=-1}}syncBooleanAttrProp(fromEl,toEl,"selected")},INPUT:function(fromEl,toEl){syncBooleanAttrProp(fromEl,toEl,"checked");syncBooleanAttrProp(fromEl,toEl,"disabled");if(fromEl.value!==toEl.value){fromEl.value=toEl.value}if(!toEl.hasAttribute("value")){fromEl.removeAttribute("value")}},TEXTAREA:function(fromEl,toEl){var newValue=toEl.value;if(fromEl.value!==newValue){fromEl.value=newValue}var firstChild=fromEl.firstChild;if(firstChild){var oldValue=firstChild.nodeValue;if(oldValue==newValue||!newValue&&oldValue==fromEl.placeholder){return}firstChild.nodeValue=newValue}},SELECT:function(fromEl,toEl){if(!toEl.hasAttribute("multiple")){var selectedIndex=-1;var i=0;var curChild=fromEl.firstChild;var optgroup;var nodeName;while(curChild){nodeName=curChild.nodeName&&curChild.nodeName.toUpperCase();if(nodeName==="OPTGROUP"){optgroup=curChild;curChild=optgroup.firstChild}else{if(nodeName==="OPTION"){if(curChild.hasAttribute("selected")){selectedIndex=i;break}i++}curChild=curChild.nextSibling;if(!curChild&&optgroup){curChild=optgroup.nextSibling;optgroup=null}}}fromEl.selectedIndex=selectedIndex}}};var ELEMENT_NODE=1;var DOCUMENT_FRAGMENT_NODE$1=11;var TEXT_NODE=3;var COMMENT_NODE=8;function noop(){}function defaultGetNodeKey(node){if(node){return node.getAttribute&&node.getAttribute("id")||node.id}}function morphdomFactory(morphAttrs){return function morphdom(fromNode,toNode,options){if(!options){options={}}if(typeof toNode==="string"){if(fromNode.nodeName==="#document"||fromNode.nodeName==="HTML"||fromNode.nodeName==="BODY"){var toNodeHtml=toNode;toNode=doc.createElement("html");toNode.innerHTML=toNodeHtml}else{toNode=toElement(toNode)}}else if(toNode.nodeType===DOCUMENT_FRAGMENT_NODE$1){toNode=toNode.firstElementChild}var getNodeKey=options.getNodeKey||defaultGetNodeKey;var onBeforeNodeAdded=options.onBeforeNodeAdded||noop;var onNodeAdded=options.onNodeAdded||noop;var onBeforeElUpdated=options.onBeforeElUpdated||noop;var onElUpdated=options.onElUpdated||noop;var onBeforeNodeDiscarded=options.onBeforeNodeDiscarded||noop;var onNodeDiscarded=options.onNodeDiscarded||noop;var onBeforeElChildrenUpdated=options.onBeforeElChildrenUpdated||noop;var skipFromChildren=options.skipFromChildren||noop;var addChild=options.addChild||function(parent,child){return parent.appendChild(child)};var childrenOnly=options.childrenOnly===true;var fromNodesLookup=Object.create(null);var keyedRemovalList=[];function addKeyedRemoval(key){keyedRemovalList.push(key)}function walkDiscardedChildNodes(node,skipKeyedNodes){if(node.nodeType===ELEMENT_NODE){var curChild=node.firstChild;while(curChild){var key=undefined;if(skipKeyedNodes&&(key=getNodeKey(curChild))){addKeyedRemoval(key)}else{onNodeDiscarded(curChild);if(curChild.firstChild){walkDiscardedChildNodes(curChild,skipKeyedNodes)}}curChild=curChild.nextSibling}}}function removeNode(node,parentNode,skipKeyedNodes){if(onBeforeNodeDiscarded(node)===false){return}if(parentNode){parentNode.removeChild(node)}onNodeDiscarded(node);walkDiscardedChildNodes(node,skipKeyedNodes)}function indexTree(node){if(node.nodeType===ELEMENT_NODE||node.nodeType===DOCUMENT_FRAGMENT_NODE$1){var curChild=node.firstChild;while(curChild){var key=getNodeKey(curChild);if(key){fromNodesLookup[key]=curChild}indexTree(curChild);curChild=curChild.nextSibling}}}indexTree(fromNode);function handleNodeAdded(el){onNodeAdded(el);var curChild=el.firstChild;while(curChild){var nextSibling=curChild.nextSibling;var key=getNodeKey(curChild);if(key){var unmatchedFromEl=fromNodesLookup[key];if(unmatchedFromEl&&compareNodeNames(curChild,unmatchedFromEl)){curChild.parentNode.replaceChild(unmatchedFromEl,curChild);morphEl(unmatchedFromEl,curChild)}else{handleNodeAdded(curChild)}}else{handleNodeAdded(curChild)}curChild=nextSibling}}function cleanupFromEl(fromEl,curFromNodeChild,curFromNodeKey){while(curFromNodeChild){var fromNextSibling=curFromNodeChild.nextSibling;if(curFromNodeKey=getNodeKey(curFromNodeChild)){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=fromNextSibling}}function morphEl(fromEl,toEl,childrenOnly){var toElKey=getNodeKey(toEl);if(toElKey){delete fromNodesLookup[toElKey]}if(!childrenOnly){var beforeUpdateResult=onBeforeElUpdated(fromEl,toEl);if(beforeUpdateResult===false){return}else if(beforeUpdateResult instanceof HTMLElement){fromEl=beforeUpdateResult;indexTree(fromEl)}morphAttrs(fromEl,toEl);onElUpdated(fromEl);if(onBeforeElChildrenUpdated(fromEl,toEl)===false){return}}if(fromEl.nodeName!=="TEXTAREA"){morphChildren(fromEl,toEl)}else{specialElHandlers.TEXTAREA(fromEl,toEl)}}function morphChildren(fromEl,toEl){var skipFrom=skipFromChildren(fromEl,toEl);var curToNodeChild=toEl.firstChild;var curFromNodeChild=fromEl.firstChild;var curToNodeKey;var curFromNodeKey;var fromNextSibling;var toNextSibling;var matchingFromEl;outer:while(curToNodeChild){toNextSibling=curToNodeChild.nextSibling;curToNodeKey=getNodeKey(curToNodeChild);while(!skipFrom&&curFromNodeChild){fromNextSibling=curFromNodeChild.nextSibling;if(curToNodeChild.isSameNode&&curToNodeChild.isSameNode(curFromNodeChild)){curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling;continue outer}curFromNodeKey=getNodeKey(curFromNodeChild);var curFromNodeType=curFromNodeChild.nodeType;var isCompatible=undefined;if(curFromNodeType===curToNodeChild.nodeType){if(curFromNodeType===ELEMENT_NODE){if(curToNodeKey){if(curToNodeKey!==curFromNodeKey){if(matchingFromEl=fromNodesLookup[curToNodeKey]){if(fromNextSibling===matchingFromEl){isCompatible=false}else{fromEl.insertBefore(matchingFromEl,curFromNodeChild);if(curFromNodeKey){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=matchingFromEl;curFromNodeKey=getNodeKey(curFromNodeChild)}}else{isCompatible=false}}}else if(curFromNodeKey){isCompatible=false}isCompatible=isCompatible!==false&&compareNodeNames(curFromNodeChild,curToNodeChild);if(isCompatible){morphEl(curFromNodeChild,curToNodeChild)}}else if(curFromNodeType===TEXT_NODE||curFromNodeType==COMMENT_NODE){isCompatible=true;if(curFromNodeChild.nodeValue!==curToNodeChild.nodeValue){curFromNodeChild.nodeValue=curToNodeChild.nodeValue}}}if(isCompatible){curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling;continue outer}if(curFromNodeKey){addKeyedRemoval(curFromNodeKey)}else{removeNode(curFromNodeChild,fromEl,true)}curFromNodeChild=fromNextSibling}if(curToNodeKey&&(matchingFromEl=fromNodesLookup[curToNodeKey])&&compareNodeNames(matchingFromEl,curToNodeChild)){if(!skipFrom){addChild(fromEl,matchingFromEl)}morphEl(matchingFromEl,curToNodeChild)}else{var onBeforeNodeAddedResult=onBeforeNodeAdded(curToNodeChild);if(onBeforeNodeAddedResult!==false){if(onBeforeNodeAddedResult){curToNodeChild=onBeforeNodeAddedResult}if(curToNodeChild.actualize){curToNodeChild=curToNodeChild.actualize(fromEl.ownerDocument||doc)}addChild(fromEl,curToNodeChild);handleNodeAdded(curToNodeChild)}}curToNodeChild=toNextSibling;curFromNodeChild=fromNextSibling}cleanupFromEl(fromEl,curFromNodeChild,curFromNodeKey);var specialElHandler=specialElHandlers[fromEl.nodeName];if(specialElHandler){specialElHandler(fromEl,toEl)}}var morphedNode=fromNode;var morphedNodeType=morphedNode.nodeType;var toNodeType=toNode.nodeType;if(!childrenOnly){if(morphedNodeType===ELEMENT_NODE){if(toNodeType===ELEMENT_NODE){if(!compareNodeNames(fromNode,toNode)){onNodeDiscarded(fromNode);morphedNode=moveChildren(fromNode,createElementNS(toNode.nodeName,toNode.namespaceURI))}}else{morphedNode=toNode}}else if(morphedNodeType===TEXT_NODE||morphedNodeType===COMMENT_NODE){if(toNodeType===morphedNodeType){if(morphedNode.nodeValue!==toNode.nodeValue){morphedNode.nodeValue=toNode.nodeValue}return morphedNode}else{morphedNode=toNode}}}if(morphedNode===toNode){onNodeDiscarded(fromNode)}else{if(toNode.isSameNode&&toNode.isSameNode(morphedNode)){return}morphEl(morphedNode,toNode,childrenOnly);if(keyedRemovalList){for(var i=0,len=keyedRemovalList.length;i<len;i++){var elToRemove=fromNodesLookup[keyedRemovalList[i]];if(elToRemove){removeNode(elToRemove,elToRemove.parentNode,false)}}}}if(!childrenOnly&&morphedNode!==fromNode&&fromNode.parentNode){if(morphedNode.actualize){morphedNode=morphedNode.actualize(fromNode.ownerDocument||doc)}fromNode.parentNode.replaceChild(morphedNode,fromNode)}return morphedNode}}var morphdom=morphdomFactory(morphAttrs);return morphdom});</script>
+<script>(function () {
+  var tpl = document.createElement('template');
+  tpl.innerHTML = document.getElementById('tpl').textContent;
+  var root = document.getElementById('app');
+  var handlers = {}, hid = 0, queued = false;
+  var SVG = 'http://www.w3.org/2000/svg';
+  var whole = /^\s*\{\{([^}]+)\}\}\s*$/;
+
+  function look(path, scope) {
+    path = path.trim();
+    if (path === 'true') return true;
+    if (path === 'false') return false;
+    if (/^-?\d+(\.\d+)?$/.test(path)) return Number(path);
+    var parts = path.split('.');
+    var v = (parts[0] in scope) ? scope[parts[0]] : undefined;
+    for (var i = 1; i < parts.length; i++) v = (v == null) ? undefined : v[parts[i]];
+    return v;
   }
-  function update(){
-    document.querySelectorAll(".v").forEach(function(card){
-      var on = card.id === "v-" + picked;
-      card.classList.toggle("picked", on);
-      var b = card.querySelector(".pick");
-      b.setAttribute("aria-pressed", String(on));
-      b.textContent = on ? "Ausgewählt" : "Variante " + card.id.slice(2) + " wählen";
-    });
-    if (!picked) return;
-    choice.textContent = names[picked];
-    wa.setAttribute("aria-disabled", "false");
-    wa.href = "https://wa.me/4915906828151?text=" + encodeURIComponent(msg());
-    mail.href = "mailto:jonathan@stg-medien.com?subject=" + encodeURIComponent("Logo-Auswahl Fahrschule Klich") + "&body=" + encodeURIComponent(msg());
-    hint.textContent = "Es öffnet sich WhatsApp mit einer vorbereiteten Nachricht. Sie müssen sie nur noch abschicken.";
+  function interp(str, scope) {
+    return str.replace(/\{\{([^}]+)\}\}/g, function (_, p) { var v = look(p, scope); return v == null ? '' : String(v); });
   }
-  document.querySelectorAll(".pick").forEach(function(b){
-    b.addEventListener("click", function(){
-      picked = b.dataset.v; update();
-      if (window.innerWidth < 760) document.getElementById("h-send").scrollIntoView({behavior:"smooth", block:"start"});
-    });
+  function kids(src, scope, out, ns) {
+    for (var c = src.firstChild; c; c = c.nextSibling) build(c, scope, out, ns);
+  }
+  function build(src, scope, out, ns) {
+    if (src.nodeType === 3) { out.appendChild(document.createTextNode(interp(src.nodeValue, scope))); return; }
+    if (src.nodeType !== 1) return;
+    var tag = src.tagName.toLowerCase(), m;
+    if (tag === 'sc-if') {
+      m = whole.exec(src.getAttribute('value') || '');
+      if (m && look(m[1], scope)) kids(src, scope, out, ns);
+      return;
+    }
+    if (tag === 'sc-for') {
+      m = whole.exec(src.getAttribute('list') || '');
+      var list = m ? look(m[1], scope) : [], as = src.getAttribute('as') || 'item';
+      (list || []).forEach(function (it, i) { var s = Object.create(scope); s[as] = it; s.$index = i; kids(src, s, out, ns); });
+      return;
+    }
+    var childNs = (tag === 'svg') ? SVG : ns;
+    var el = childNs ? document.createElementNS(SVG, src.tagName) : document.createElement(tag);
+    for (var a = 0; a < src.attributes.length; a++) {
+      var name = src.attributes[a].name, val = src.attributes[a].value;
+      m = whole.exec(val);
+      if (name.indexOf('on') === 0 && m) {
+        var f = look(m[1], scope);
+        if (typeof f === 'function') { var id = 'h' + (hid++); handlers[id] = f; el.setAttribute('data-on-' + name.slice(2), id); }
+        continue;
+      }
+      if (m) {
+        var v = look(m[1], scope);
+        if (v === false || v == null) continue;
+        el.setAttribute(name, v === true ? '' : String(v));
+        continue;
+      }
+      el.setAttribute(name, interp(val, scope));
+    }
+    kids(tag === 'template' ? src.content : src, scope, el, childNs);
+    out.appendChild(el);
+  }
+  function render() {
+    queued = false;
+    handlers = {};
+    var vals = comp.renderVals();
+    var next = document.createElement('div');
+    next.id = root.id;
+    kids(tpl.content, Object.assign({}, vals), next, null);
+    morphdom(root, next);
+  }
+  function schedule() { if (!queued) { queued = true; Promise.resolve().then(render); } }
+
+  window.DCLogic = function (props) { this.props = props || {}; this.state = {}; };
+  window.DCLogic.prototype.setState = function (o) { Object.assign(this.state, typeof o === 'function' ? o(this.state) : o); schedule(); };
+  window.DCLogic.prototype.forceUpdate = function () { schedule(); };
+
+  var comp;
+  window.__mount = function (Comp, props) { comp = new Comp(props); render(); };
+
+  function fire(attr, e, el) { var f = handlers[el.getAttribute(attr)]; if (f) f(e); }
+  root.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-on-click]');
+    if (t && root.contains(t)) fire('data-on-click', e, t);
   });
-  note.addEventListener("input", update);
+  root.addEventListener('input', function (e) {
+    var t = e.target;
+    if (t.matches && t.matches('[data-on-change]') && t.type !== 'checkbox' && t.type !== 'radio') fire('data-on-change', e, t);
+  });
+  root.addEventListener('change', function (e) {
+    var t = e.target;
+    if (t.matches && t.matches('[data-on-change]') && (t.type === 'checkbox' || t.type === 'radio' || t.tagName === 'SELECT')) fire('data-on-change', e, t);
+  });
+  root.addEventListener('submit', function (e) {
+    var t = e.target;
+    if (t.matches && t.matches('[data-on-submit]')) fire('data-on-submit', e, t); else e.preventDefault();
+  });
 })();
+</script>
+<script>
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 1, who: '', klasse: '', name: '', phone: '', rc: 'B', hours: null, own: false, haveBasics: false, rcOpen: false, rcStep: 1, rcDetails: false, rcName: '', rcEmail: '', rcConsent: false, rcSent: false };
+  }
+  renderVals() {
+    const accent = this.props.accent ?? '#0072B5';
+    const hero = this.props.hero ?? 'Claim';
+    const st = this.state;
+    const kid = st.who === 'kid';
+    const go = (patch) => this.setState(Object.assign({}, patch));
+    const tile = 'display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; min-height: 76px; padding: 14px 16px; border-radius: 10px; border: 2px solid #D5DAE0; background: #FFFFFF; color: #14191F; font: inherit; font-weight: 600; cursor: pointer;';
+    const backBtn = 'align-self: flex-start; background: none; border: none; padding: 8px 0; min-height: 44px; color: #3A424A; font: inherit; font-weight: 500; cursor: pointer;';
+    const pct = { 1: '8%', 2: '33%', 3: '60%', 4: '85%', 5: '100%' }[st.step];
+    const C = {
+      B: { label: 'Auto', sub: 'B, BF17, B197', gb: 500, std: 64, sf: 85, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 129.83, fe: 38.30, h: [10, 60, 25], basics: true },
+      A1: { label: 'Motorrad 125', sub: 'A1, ab 16', gb: 500, std: 80, sf: 90, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 162.67, fe: 38.30, h: [5, 40, 12], basics: true },
+      A2: { label: 'Motorrad A2', sub: 'ab 18', gb: 500, std: 85, sf: 90, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 162.67, fe: 38.30, h: [5, 40, 12], basics: true, own: { std: 60, sf: 80 } },
+      A: { label: 'Motorrad A', sub: 'unbeschränkt', gb: 500, std: 85, sf: 95, nsf: 12, vt: 55, vp: 200, tt: 24.99, tp: 162.67, fe: 38.30, h: [5, 40, 12], basics: true },
+      AM: { label: 'Roller', sub: 'AM, ab 15', gb: 500, std: 75, sf: 0, nsf: 0, vt: 50, vp: 200, tt: 24.99, tp: 129.83, fe: 38.30, h: [4, 30, 8], basics: true },
+      T: { label: 'Traktor', sub: 'T, ab 16', gb: 500, std: 65, sf: 0, nsf: 0, vt: 55, vp: 200, tt: 24.99, tp: 162.68, fe: 38.30, h: [4, 30, 8], basics: true },
+      BE: { label: 'Anhänger', sub: 'BE', gb: 100, std: 85, sf: 88, nsf: 5, vt: 0, vp: 220, tt: 0, tp: 129.83, fe: 37.50, h: [2, 20, 4], basics: false }
+    };
+    const eur = (n) => n.toLocaleString('de-DE', { style: 'currency', currency: 'EUR', minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 });
+    const rcKey = C[st.rc] ? st.rc : 'B';
+    const k = C[rcKey];
+    const hours = st.hours == null ? k.h[2] : st.hours;
+    const useOwn = !!(k.own && st.own);
+    const std = useOwn ? k.own.std : k.std;
+    const sf = useOwn ? k.own.sf : k.sf;
+    const school = [], fees = [];
+    school.push({ label: 'Grundbetrag', note: k.vt ? 'Anmeldung und Theorieunterricht' : 'Anmeldung und Ausbildung', v: k.gb });
+    school.push({ label: hours + ' Übungsstunden', note: 'je ' + eur(std), v: hours * std });
+    if (k.nsf) school.push({ label: k.nsf + ' Sonderfahrten, Pflicht', note: 'Überland, Autobahn, Dunkelheit, je ' + eur(sf), v: k.nsf * sf });
+    if (k.vt) school.push({ label: 'Vorstellung Theorieprüfung', note: 'Fahrschule', v: k.vt });
+    school.push({ label: 'Vorstellung praktische Prüfung', note: 'Fahrschule', v: k.vp });
+    if (k.tt) fees.push({ label: 'Theorieprüfung', note: 'Gebühr TÜV/DEKRA', v: k.tt });
+    fees.push({ label: 'Praktische Prüfung', note: 'Gebühr TÜV/DEKRA', v: k.tp });
+    fees.push({ label: 'Antrag Führerscheinstelle', note: 'Gebühr Kreis Gütersloh', v: k.fe + 5.10 });
+    if (k.basics && !st.haveBasics) fees.push({ label: 'Sehtest und Erste-Hilfe-Kurs', note: 'einmalig', v: 6.43 + 35 });
+    const sumS = school.reduce((a, r) => a + r.v, 0), sumF = fees.reduce((a, r) => a + r.v, 0);
+    const pickStyle = (on) => 'display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; min-height: 60px; padding: 10px 12px; border-radius: 10px; font: inherit; font-weight: 600; color: #14191F; cursor: pointer; border: 2px solid ' + (on ? '#0072B5' : '#D5DAE0') + '; background: ' + (on ? '#EAF5FC' : '#FFFFFF') + ';';
+    const classes = Object.keys(C).map((key) => ({ label: C[key].label, sub: C[key].sub, pressed: String(key === rcKey), style: pickStyle(key === rcKey), pick: () => this.setState({ rc: key, hours: null, own: false, rcStep: 2 }) }));
+    const waPrice = 'https://wa.me/491725383804?text=' + encodeURIComponent('Hallo Markus, ich habe den Preisrechner auf der Website genutzt (' + k.label + ', ca. ' + hours + ' Übungsstunden). Können wir einen Termin für eine Beratung machen?');
+    return {
+      classes, rows: school.concat(fees).map((r) => ({ label: r.label, note: r.note, amount: eur(r.v) })), hours, hMin: k.h[0], hMax: k.h[1], hasOwn: !!k.own, own: useOwn, hasBasics: k.basics, haveBasics: !!st.haveBasics, totalFmt: eur(Math.round(sumS + sumF)), schoolFmt: eur(sumS), feesFmt: eur(Math.round(sumF * 100) / 100), waPrice,
+      rcOpen: !!st.rcOpen, rcOpenStr: String(!!st.rcOpen), rcStep: st.rcStep, rc1: st.rcStep === 1, rc2: st.rcStep === 2, rc3: st.rcStep === 3,
+      rcPct: st.rcOpen ? ({ 1: '15%', 2: '55%', 3: '100%' })[st.rcStep] : '0%',
+      rcTeaser: 'Mit ' + hours + ' Übungsstunden und allen Gebühren. ' + (st.rcOpen ? 'Passen Sie die Werte unten an.' : 'Selbst ausrechnen in 3 Schritten'),
+      rcAvgLabel: (st.rcStep === 3 || st.hours != null || rcKey !== 'B' ? k.label : 'Führerschein Auto') + ', Gesamtkosten',
+      rcChevron: st.rcOpen ? '−' : '+', rcLabel: k.label + ' (' + k.sub + ')',
+      rcDetails: !!st.rcDetails, rcDetailsStr: String(!!st.rcDetails), rcDetailsLabel: st.rcDetails ? 'Aufstellung ausblenden' : 'Aufstellung anzeigen',
+      toggleRc: () => this.setState({ rcOpen: !st.rcOpen }),
+      rcName: st.rcName, rcEmail: st.rcEmail, rcConsent: !!st.rcConsent, rcSent: !!st.rcSent, rcNotSent: !st.rcSent,
+      rcFirstName: (st.rcName || '').trim().split(' ')[0] || 'Ihnen',
+      setRcName: (e) => this.setState({ rcName: e.target.value }),
+      setRcEmail: (e) => this.setState({ rcEmail: e.target.value }),
+      toggleRcConsent: (e) => this.setState({ rcConsent: !!e.target.checked }),
+      rcSubmit: (e) => { e.preventDefault(); this.setState({ rcSent: true }); },
+      toggleDetails: () => this.setState({ rcDetails: !st.rcDetails }),
+      rcBack: () => this.setState({ rcStep: Math.max(1, st.rcStep - 1) }),
+      rcCalc: () => this.setState({ rcStep: 3 }),
+      rcRestart: () => this.setState({ rcStep: 1, rcDetails: false }),
+      setHours: (e) => this.setState({ hours: Number(e.target.value) }),
+      toggleOwn: (e) => this.setState({ own: !!e.target.checked }),
+      toggleBasics: (e) => this.setState({ haveBasics: !!e.target.checked }),
+      accent,
+      grad: 'linear-gradient(90deg, #009FE3 0%, #00A295 50%, #40A535 100%)',
+      gradDeep: 'linear-gradient(110deg, #0072B5 0%, #00796E 55%, #2F7D32 100%)',
+      gradSoft: 'linear-gradient(90deg, #BDE6F8 0%, #C9EBD0 50%, #D3ECC7 100%)',
+      isClaim: hero !== 'BF17',
+      isBF17: hero === 'BF17',
+      wa: 'https://wa.me/491725383804?text=' + encodeURIComponent('Hallo Markus, ich interessiere mich für den Führerschein in Spexard.'),
+      tile, backBtn,
+      progress: pct,
+      s1: st.step === 1, s2: st.step === 2, s3: st.step === 3, s4: st.step === 4, done: st.step === 5,
+      showWa: st.step < 5,
+      name: st.name, phone: st.phone,
+      firstName: (st.name || '').trim().split(' ')[0] || 'dir',
+      nameQuestion: kid ? 'Wie heißt Ihr Kind?' : 'Wie heißt du?',
+      phoneQuestion: kid ? 'Unter welcher Nummer erreichen wir Sie?' : 'Unter welcher Nummer erreichen wir dich?',
+      pickSelf: () => go({ who: 'self', step: 2 }),
+      pickKid: () => go({ who: 'kid', step: 2 }),
+      pickB: () => go({ klasse: 'B', step: 3 }),
+      pickBF17: () => go({ klasse: 'BF17', step: 3 }),
+      pickMoto: () => go({ klasse: 'Motorrad', step: 3 }),
+      pickOther: () => go({ klasse: 'Andere', step: 3 }),
+      setName: (e) => this.setState({ name: e.target.value }),
+      setPhone: (e) => this.setState({ phone: e.target.value }),
+      nextName: (e) => { e.preventDefault(); go({ step: 4 }); },
+      submit: (e) => { e.preventDefault(); go({ step: 5 }); },
+      back: () => go({ step: Math.max(1, st.step - 1) }),
+      restart: () => go({ step: 1, who: '', klasse: '', name: '', phone: '' })
+    };
+  }
+}
+
+window.__mount(Component, {"hero": "Claim", "accent": "#0072B5"});
 </script>
 </body>
 </html>
